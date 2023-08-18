@@ -1,0 +1,130 @@
+<mxfile host="app.diagrams.net" modified="2023-08-13T01:00:11.798Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="Ts3WcGvpjGnQJkssA6iU" version="21.1.4" type="device">
+  <diagram name="Page-1" id="bUL_WEDjJb8lwmxPnRnh">
+    <mxGraphModel dx="729" dy="355" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="DYm5wCU3bIQrM664g-3_-1" value="Scraped from Youtube.com&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="70" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-6" value="endpoints" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="85" y="70" width="420" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-7" value="/competitions: ID&#39;s of all available competitions" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="DYm5wCU3bIQrM664g-3_-6">
+          <mxGeometry y="30" width="420" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-8" value="/competitions/{competition_id}/matches: &lt;br&gt;&lt;ul&gt;&lt;li&gt;Get a list of matches for a specific competition.&amp;nbsp;&lt;/li&gt;&lt;li&gt;List of matches with match IDs, teamsID, date, and other relevant details.&amp;nbsp;&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="DYm5wCU3bIQrM664g-3_-6">
+          <mxGeometry y="60" width="420" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-9" value="/matches/{match_id}:&lt;br&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Get detailed information about a specific match.&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Match details including teams, date, venue, and possibly more.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="DYm5wCU3bIQrM664g-3_-6">
+          <mxGeometry y="120" width="420" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-11" value="&lt;span style=&quot;background-color: initial;&quot;&gt;/matches/{match_id}/highlights:&amp;nbsp;&lt;br&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Description: Get a list of YouTube video links for highlights of a specific match. Response: List of YouTube video links with titles, URLs, and possibly durations.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="DYm5wCU3bIQrM664g-3_-6">
+          <mxGeometry y="180" width="420" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-12" value="/highlights/" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="DYm5wCU3bIQrM664g-3_-6">
+          <mxGeometry y="240" width="420" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-13" value="/highlights/latest" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="DYm5wCU3bIQrM664g-3_-6">
+          <mxGeometry y="270" width="420" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-15" value="Competitions" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="630" y="70" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="679.52" y="165" as="sourcePoint" />
+            <mxPoint x="679.52" y="215" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="679" y="185" />
+              <mxPoint x="679" y="185" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="DYm5wCU3bIQrM664g-3_-18" target="DYm5wCU3bIQrM664g-3_-27">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="615" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-18" value="Matches" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="645" y="215" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="DYm5wCU3bIQrM664g-3_-15" target="DYm5wCU3bIQrM664g-3_-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="675" y="100" as="sourcePoint" />
+            <mxPoint x="705" y="148" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="675" y="125" />
+              <mxPoint x="675" y="125" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-16" value="Competition_id" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="630" y="140" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-21" value="&lt;u&gt;Match_id&lt;/u&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="510" y="260" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-23" value="(for each match)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="700" y="215" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-24" value="Text" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="620" y="450" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-27" value="&lt;u&gt;Home Team&lt;/u&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="570" y="260" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-28" value="&lt;u&gt;Away Team&lt;/u&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="645" y="260" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-29" value="&lt;u&gt;Date Played&lt;/u&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="720" y="260" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-30" value="&amp;nbsp; &amp;nbsp; &lt;u&gt;Video Title Link&lt;/u&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="785" y="260" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-33" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="640" y="240" as="sourcePoint" />
+            <mxPoint x="690" y="260" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="690" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="DYm5wCU3bIQrM664g-3_-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="570" y="240" as="sourcePoint" />
+            <mxPoint x="540" y="260" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="540" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-36" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="690" y="240" as="sourcePoint" />
+            <mxPoint x="765" y="260" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="765" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-37" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="760" y="240" as="sourcePoint" />
+            <mxPoint x="840" y="260" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="840" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DYm5wCU3bIQrM664g-3_-38" value="Competition Logo" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="720" y="140" width="120" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
