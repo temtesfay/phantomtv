@@ -10,11 +10,30 @@ body {
 
 }
 
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: grey;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: rgb(119, 119, 143);
+}
+
 .horizontal-scroll {
   display: flex;
   align-items: center; 
   width:300px;height:40px;
   margin-left: 5px;
+  margin-bottom: 15px;
+  /* -webkit-overflow-scrolling: touch; */
 }
 
 .LeftScroll {
