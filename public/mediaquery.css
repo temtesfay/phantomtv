@@ -1,52 +1,64 @@
 
 
-@media only screen and (min-width: 600px) {
-body {
-  background-color: #090229;color:white;
-  height: 100%;
-  width:100%;
-  overflow-x:hidden;
-  margin: 0px;
-  padding: 0px;
-  font-family: 'Alatsi', sans-serif;
 
-}
+@media only screen and (max-device-width: 767px) { 
+
+html{
+    height:100%; /* ✔️ Height on the parent will fix this issue. */
+    overflow-x: hidden;
+  }
+
+body {
+    font-size: 14px;
+    /* overflow-x: hidden; */
+    background-color: #090229;
+    color:white;
+    height: 100%;
+    width:100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    font-family: 'Alatsi', sans-serif;
+  }
+
 
 body::-webkit-scrollbar {
-  width: 8px;
-}
+    width: 8px;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: grey;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 5px;
+  }
+  
+  body::-webkit-scrollbar-thumb:hover {
+    background: rgb(119, 119, 143);
+  }
 
-body::-webkit-scrollbar-track {
-  background: grey;
-}
+  .horizontal-scroll {
+    display: flex;
+    align-items: center; 
+    /* width:300px; */
+    height:130px;
+    margin-left: 5px;
+    margin-bottom: 15px;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch; 
+  }
 
-body::-webkit-scrollbar-thumb {
-  background: white;
-  border-radius: 5px;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-  background: rgb(119, 119, 143);
-}
-
-.horizontal-scroll {
-  display: flex;
-  align-items: center; 
-  width:300px;height:40px;
-  margin-left: 5px;
-  margin-bottom: 15px;
-  /* -webkit-overflow-scrolling: touch; */
-}
-
-.LeftScroll {
-    display: none;
+  .LeftScroll {
+    display:none;
     background-color: #090229; 
     /* opacity: 0.8; */
     border: 1px solid white;
     box-shadow: 0 0 10px #090229;
     padding: 10px 8px;
     margin: 0 0px;
-    z-index: 2;
+    z-index: 1;
     cursor: pointer;
     transition: 1s;
     position: absolute;
@@ -58,14 +70,14 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .RightScroll {
-  display: none;
+    display:none;
   background-color: #090229; 
     /* opacity: 0.8; */
     border: 1px solid white;
     box-shadow: 0 0 10px #090229;
     padding: 10px 8px;
     margin: 0 0px;
-    z-index: 2;
+    z-index: 1;
     cursor: pointer;
     transition: 1s;
     position: absolute;
@@ -82,18 +94,22 @@ body::-webkit-scrollbar-thumb:hover {
 
 .live-channels-container {
     display: flex;
+    /* height:100%; */
     flex-direction: row;
     gap:3px;
     flex-direction: row;
     /* justify-content: flex-start; */
     /* align-items: center; */
-    position: absolute; 
-    transition: 0.5s all ease-out;
-    /* z-index: 1; */
+    position: relative; 
+    overflow-x: auto;
+    overflow-y:none;
+    -webkit-overflow-scrolling: touch;
+
 }
 
 .channel {
   display: flex; background-color:#140a3d; color: white;width:300px;height:110px;padding:5px;padding-bottom: 15px;border-radius: 3%;font-family:'Pragati Narrow', sans-serif;
+  overflow-x: none;
 }
 
 
@@ -200,17 +216,14 @@ p{
 }
 
 .live-data-container {
+  border: 1px solid red;
   color: white;
-  width: 200px;
+  width: auto;
   height: 60px;
   background-color: #140a3d;
   padding: 25px;
   border-radius: 2%;
-  border: 1px solid red;
   position: relative;
-  /* top: 70px; */
-  /* right:70px; */
-  /* margin-bottom: 30px; */
 }
 
 .live-data-container:hover {
@@ -225,6 +238,11 @@ p{
   flex-direction: row; /* Add this line */
   gap: 10px;
   width: 100%;
+  height:230px;
+  position: relative; 
+  overflow-x: auto;
+  overflow-y:none;
+  -webkit-overflow-scrolling: touch;
   /* margin-top: 100px; */
 }
 
@@ -234,7 +252,7 @@ p{
 }
 
 .upcoming {
-  margin-top: 5.5em;
+  margin-top: 8vh;
   margin-left:10px;
 }
 
@@ -243,6 +261,11 @@ p{
   flex-direction: row; /* Add this line */
   gap: 10px;
   width: 100%;
+  /* height:230px;
+  position: relative; 
+  overflow-x: auto;
+  overflow-y:none;
+  -webkit-overflow-scrolling: touch; */ 
   /* margin-bottom: 120px; */
 }
 
@@ -299,12 +322,12 @@ p{
  }
 
  #LiveH2 {
-  color: white;
-  /* font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
-  font-size: 22px;
-  margin-bottom: 9vh;
-  margin-left:5px;
- }
+    color: white;
+    /* font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+    font-size: 22px;
+    margin-bottom: 2vh;
+    margin-left:5px;
+   }
 
  .liveIMG {
   position:absolute;
@@ -333,13 +356,15 @@ p{
 
 
  .headerIMG {
+    /* height:3300px;
+    width:400px; */
+  /* display:none; */
   margin-top:3.5em;
   opacity: 100%;
  }
 
- .mobile {
-  display:none;
-
+ .desktop {
+    display: none;
  }
 
  .game-minute {
@@ -350,5 +375,7 @@ p{
   margin-left: 10px;
   margin-right: 10px;
  }
+
 }
+
 

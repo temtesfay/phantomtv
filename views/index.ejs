@@ -2,17 +2,22 @@
 <html>
   <head>
     <title>Phantom TV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="mediaquery.css">
   </head>
   <body>
     <div class="top">
       <div class="header">
          <img src="/images/phantomtvlogo.png" width="50" height="50">
-         <a href="phantomtv.onrender.com" style="text-decoration:none;color: inherit;"><div class="home"> <span>HOME</span> </div></a>
-         <a href="livetv.html" style="text-decoration:none;color: inherit;"><div class="live-tv"> <span>HIGHLIGHTS</span> </div></a>
+         <a href="phantomtv.onrender.com" style="text-decoration:none;color: inherit;font-size: 19px;"><div class="home"> <bold>HOME</bold> </div></a>
+         <a href="livetv.html" style="text-decoration:none;color: inherit;font-size: 19px;"><div class="live-tv"> <bold>HIGHLIGHTS</bold> </div></a>
       </div>
-      <div class="headerIMG">
-           <img src="/images/header4.png" width="100%" height="5%" style="opacity: 100%;">
+      <div class="headerIMG desktop">
+           <img src="/images/header4.png" style="opacity: 100%;" width="100%" height="5%">
+      </div>
+      <div class="headerIMG mobile">
+        <img src="/images/header-mobile.png" style="opacity: 100%;" width="100%" height="5%">
       </div>
     </div>
     <div id="live">
@@ -20,258 +25,257 @@
       <div id="live-fixtures-container"></div>
    </div>
     
-     <h2 style="color: white;font-family: 'Alatsi', sans-serif;font-size: 22px;margin-bottom: 50px;margin-left: 5px;">Live Channels</h2>
-     <div class="horizontal-scroll">
-       <button class="LeftScroll" id="LeftScroll" onclick="scrollHorizontally2(1)"><img src="/images/Left-Arrow.png" width="25" height="30" style="position: relative;bottom:5px;right: 4px;"></button>
-       <button class="RightScroll" id="RightScroll" onclick="scrollHorizontally2(-1)"><img src="/images/Right-Arrow.png" width="25" height="30" style="position: relative;bottom:5px;right: 0px;"></button>
-       <div class="live-channels-container">    
-          <a href='bt-sport1.html'><div id="tnt-sport1" class="channel" >
+      <h1 id="LiveH2">Live Channels</h1>
+      <div class="horizontal-scroll">
+        <button class="LeftScroll" id="LeftScroll" onclick="scrollHorizontally2(1)"><img src="/images/Left-Arrow.png" width="25" height="30" style="position: relative;bottom:5px;right: 4px;"></button>
+        <button class="RightScroll" id="RightScroll" onclick="scrollHorizontally2(-1)"><img src="/images/Right-Arrow.png" width="25" height="30" style="position: relative;bottom:5px;right: 0px;"></button>
+        <div id='live-channels-container' class="live-channels-container">    
+            <a href='bt-sport1.html'><div id="tnt-sport1" class="channel" >
+                <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
+                    <a href='/tv-guide-bt-sport-1/' title='BT Sport 1'>
+                      <img src='https://img01.products.bt.co.uk/content/dam/bt/portal/images/logos/tnt/TNTSports1_Logo_White_RGB_Logo.png' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
+                    </a>
+                    <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
+                </div>
+                <div class="rightSide">
+                    <div class="title-row">TNT Sports 1</div>
+                    <div class="information-row">
+                        <div class="titleAndDesc">
+                            <h class="title"><%= TNTSports1.title %></h>
+                            <div class="truncated-text">
+                              <p class="truncated-content"><%= TNTSports1.description %></p>
+                              <p class="full-content"><%= TNTSports1.description %></p>
+                            </div>
+                        </div>
+                        <div class="time">
+                            Time: <%= TNTSports1.time %>
+                        </div>
+                        <div class="progress"></div>
+                        <div class="progress-completed" data-progress="<%= TNTSports1.progress %>"></div>
+                          
+                    </div>
+                </div>
+              </div>
+            </a>
+            <!-- TNT Sports 2 Channel -->
+            <a href='bt-sport1.html'><div id="tnt-sport2" class="channel" >
               <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
-                  <a href='/tv-guide-bt-sport-1/' title='BT Sport 1'>
-                    <img src='https://img01.products.bt.co.uk/content/dam/bt/portal/images/logos/tnt/TNTSports1_Logo_White_RGB_Logo.png' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
+                  <a href='/tv-guide-bt-sport-1/' title='BT Sport 2'>
+                    <img src='https://img01.products.bt.co.uk/content/dam/bt/portal/images/logos/tnt/TNTSports2_Logo_White_RGB_Logo.png' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
                   </a>
                   <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
               </div>
               <div class="rightSide">
-                  <div class="title-row">TNT Sports 1</div>
+                  <div class="title-row">TNT Sports 2</div>
                   <div class="information-row">
                       <div class="titleAndDesc">
-                          <h class="title"><%= TNTSports1.title %></h>
+                          <h class="title"><%= TNTSports2.title %></h>
                           <div class="truncated-text">
-                            <p class="truncated-content"><%= TNTSports1.description %></p>
-                            <p class="full-content"><%= TNTSports1.description %></p>
+                            <p class="truncated-content"><%= TNTSports2.description %></p>
+                            <p class="full-content"><%= TNTSports2.description %></p>
                           </div>
                       </div>
                       <div class="time">
-                          Time: <%= TNTSports1.time %>
+                          Time: <%= TNTSports2.time %>
                       </div>
                       <div class="progress"></div>
-                      <div class="progress-completed" data-progress="<%= TNTSports1.progress %>"></div>
+                      <div class="progress-completed 2" data-progress="<%= TNTSports2.progress %>"></div>
                         
                   </div>
               </div>
             </div>
           </a>
-          <!-- TNT Sports 2 Channel -->
-          <a href='bt-sport1.html'><div id="tnt-sport2" class="channel" >
+          <!-- TNT Sports 3 Channel-->
+          <a href='bt-sport3.html'><div id="tnt-sport3" class="channel" >
             <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
-                <a href='/tv-guide-bt-sport-1/' title='BT Sport 2'>
-                  <img src='https://img01.products.bt.co.uk/content/dam/bt/portal/images/logos/tnt/TNTSports2_Logo_White_RGB_Logo.png' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
+                <a href='/tv-guide-bt-sport-1/' title='BT Sport 3'>
+                  <img src='https://img01.products.bt.co.uk/content/dam/bt/portal/images/logos/tnt/TNTSports3_Logo_White_RGB_Logo.png' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
                 </a>
                 <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
             </div>
             <div class="rightSide">
-                <div class="title-row">TNT Sports 2</div>
+                <div class="title-row">TNT Sports 3</div>
                 <div class="information-row">
                     <div class="titleAndDesc">
-                        <h class="title"><%= TNTSports2.title %></h>
+                        <h class="title"><%= TNTSports3.title %></h>
                         <div class="truncated-text">
-                          <p class="truncated-content"><%= TNTSports2.description %></p>
-                          <p class="full-content"><%= TNTSports2.description %></p>
+                          <p class="truncated-content"><%= TNTSports3.description %></p>
+                          <p class="full-content"><%= TNTSports3.description %></p>
                         </div>
                     </div>
                     <div class="time">
-                        Time: <%= TNTSports2.time %>
+                        Time: <%= TNTSports3.time %>
                     </div>
                     <div class="progress"></div>
-                    <div class="progress-completed 2" data-progress="<%= TNTSports2.progress %>"></div>
-                      
+                    <div class="progress-completed 3" data-progress="<%= TNTSports3.progress %>"></div>        
                 </div>
             </div>
-          </div>
-        </a>
-        <!-- TNT Sports 3 Channel-->
-        <a href='bt-sport3.html'><div id="tnt-sport3" class="channel" >
-          <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
-              <a href='/tv-guide-bt-sport-1/' title='BT Sport 3'>
-                <img src='https://img01.products.bt.co.uk/content/dam/bt/portal/images/logos/tnt/TNTSports3_Logo_White_RGB_Logo.png' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
-              </a>
-              <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
-          </div>
-          <div class="rightSide">
-              <div class="title-row">TNT Sports 3</div>
-              <div class="information-row">
-                  <div class="titleAndDesc">
-                      <h class="title"><%= TNTSports3.title %></h>
-                      <div class="truncated-text">
-                        <p class="truncated-content"><%= TNTSports3.description %></p>
-                        <p class="full-content"><%= TNTSports3.description %></p>
-                      </div>
-                  </div>
-                  <div class="time">
-                      Time: <%= TNTSports3.time %>
-                  </div>
-                  <div class="progress"></div>
-                  <div class="progress-completed 3" data-progress="<%= TNTSports3.progress %>"></div>        
-              </div>
-          </div>
-          </div>
-        </a>
-        <!-- Sky Sports EPL Channel-->
-        <a href='skysportsepl.html'><div id="skysportsepl" class="channel" >
-          <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
-              <a href='/tv-guide-bt-sport-1/' title='Sky Sports Premier League'>
-                <img src='https://images.metadata.sky.com/pd-logo/skychb_1303_darknow/164/50' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
-              </a>
-              <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
-          </div>
-          <div class="rightSide">
-              <div class="title-row">Sky Sports Premier League</div>
-              <div class="information-row">
-                  <div class="titleAndDesc">
-                      <h class="title"><%= SkySportsEPL.title %></h>
-                      <div class="truncated-text">
-                        <p class="truncated-content"><%= SkySportsEPL.description %></p>
-                        <p class="full-content"><%= SkySportsEPL.description %></p>
-                      </div>
-                  </div>
-                  <div class="time">
-                      Time: <%= SkySportsEPL.time %>
-                  </div>
-                  <div class="progress"></div>
-                  <div class="progress-completed 4" data-progress="<%= SkySportsEPL.progress %>"></div>       
-              </div>
-          </div>
-          </div>
-        </a>
-        <!--Premier Sports 1-->
-        <a href='premiersports1.html'><div id="premiersports1" class="channel" >
-          <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
-              <a href='/tv-guide-bt-sport-1/' title='Premier Sports 1'>
-                <img src='https://www.thesportsdb.com/images/media/tvlogo/Premier_Sports.png' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
-              </a>
-              <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
-          </div>
-          <div class="rightSide">
-              <div class="title-row">Premier Sports 1</div>
-              <div class="information-row">
-                  <div class="titleAndDesc">
-                      <h class="title"><%= PremierSports1.title %></h>
-                      <div class="truncated-text">
-                        <p class="truncated-content"><%= PremierSports1.description %></p>
-                        <p class="full-content"><%= PremierSports1.description %></p>
-                      </div>
-                  </div>
-                  <div class="time">
-                      Time: <%= PremierSports1.time %>
-                  </div>
-                  <div class="progress"></div>
-                  <div class="progress-completed 5" data-progress="<%= PremierSports1.progress %>"></div>         
-              </div>
-          </div>
-          </div>
-        </a>
-        <!--Premier Sports 2-->
-        <a href='premiersports2.html'><div id="premiersports2" class="channel" >
-          <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
-              <a href='/tv-guide-bt-sport-1/' title='Premier Sports 2'>
-                <img src='https://www.thesportsdb.com/images/media/tvlogo/Premier_Sports.png' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
-              </a>
-              <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
-          </div>
-          <div class="rightSide">
-              <div class="title-row">Premier Sports 2</div>
-              <div class="information-row">
-                  <div class="titleAndDesc">
-                      <h class="title"><%= PremierSports2.title %></h>
-                      <div class="truncated-text">
-                        <p class="truncated-content"><%= PremierSports2.description %></p>
-                        <p class="full-content"><%= PremierSports2.description %></p>
-                      </div>
-                  </div>
-                  <div class="time">
-                      Time: <%= PremierSports2.time %>
-                  </div>
-                  <div class="progress"></div>
-                  <div class="progress-completed 6" data-progress="<%= PremierSports2.progress %>"></div>        
-              </div>
-          </div>
-          </div>
-        </a>
-        <!--Sky Sports Main Event-->
-        <a href='skysportsmainevent.html'><div id="skysportsmainevent" class="channel" >
-          <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
-              <a href='/tv-guide-bt-sport-1/' title='Sky Sports Main Evenet'>
-                <img src='https://e0.365dm.com/tvlogos/channels/1301-Logo.svg?U2t5IFNwb3J0cyBNYWluIEV2ZW50' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
-              </a>
-              <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
-          </div>
-          <div class="rightSide">
-              <div class="title-row">Sky Sports Main Event</div>
-              <div class="information-row">
-                  <div class="titleAndDesc">
-                      <h class="title"><%= SkySportsMainEvent.title %></h>
-                      <div class="truncated-text">
-                        <p class="truncated-content"><%= SkySportsMainEvent.description %></p>
-                        <p class="full-content"><%= SkySportsMainEvent.description %></p>
-                      </div>
-                  </div>
-                  <div class="time">
-                      Time: <%= SkySportsMainEvent.time %>
-                  </div>
-                  <div class="progress"></div>
-                  <div class="progress-completed 7" data-progress="<%= SkySportsMainEvent.progress %>"></div>        
-              </div>
-          </div>
-          </div>
-        </a>
-        <!--Sky Sports Football-->
-        <a href='skysportsfootball.html'><div id="skysportsfootball" class="channel" >
-          <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
-              <a href='/tv-guide-bt-sport-1/' title='Sky Sports Football'>
-                <img src='https://e0.365dm.com/tvlogos/channels/3838-Logo.svg?U2t5IFNwb3J0cyBGb290YmFsbA==' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
-              </a>
-              <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
-          </div>
-          <div class="rightSide">
-              <div class="title-row">Sky Sports Football</div>
-              <div class="information-row">
-                  <div class="titleAndDesc">
-                      <h class="title"><%= SkySportsFootball.title %></h>
-                      <div class="truncated-text">
-                        <p class="truncated-content"><%= SkySportsFootball.description %></p>
-                        <p class="full-content"><%= SkySportsFootball.description %></p>
-                      </div>
-                  </div>
-                  <div class="time">
-                      Time: <%= SkySportsFootball.time %>
-                  </div>
-                  <div class="progress"></div>
-                  <div class="progress-completed 8" data-progress="<%= SkySportsFootball.progress %>"></div>       
-              </div>
-          </div>
-          </div>
-        </a>
-        <!--Sky Sports News-->
-        <a href='skysportsnews.html'><div id="skysportsnews" class="channel" >
-          <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
-              <a href='/tv-guide-bt-sport-1/' title='Sky Sports News'>
-                <img src='https://e0.365dm.com/tvlogos/channels/1314-Logo.svg?U2t5IFNwb3J0cyBOZXdz' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
-              </a>
-              <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
-          </div>
-          <div class="rightSide">
-              <div class="title-row">Sky Sports News</div>
-              <div class="information-row">
-                  <div class="titleAndDesc">
-                      <h class="title"><%= SkySportsNews.title %></h>
-                      <div class="truncated-text">
-                        <p class="truncated-content"><%= SkySportsNews.description %></p>
-                        <p class="full-content"><%= SkySportsNews.description %></p>
-                      </div>
-                  </div>
-                  <div class="time">
-                      Time: <%= SkySportsNews.time %>
-                  </div>
-                  <div class="progress"></div>
-                  <div class="progress-completed 9" data-progress="<%= SkySportsNews.progress %>"></div>         
-              </div>
-          </div>
-          </div>
-        </a>
-       </div>
-     </div>
-
+            </div>
+          </a>
+          <!-- Sky Sports EPL Channel-->
+          <a href='skysportsepl.html'><div id="skysportsepl" class="channel" >
+            <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
+                <a href='/tv-guide-bt-sport-1/' title='Sky Sports Premier League'>
+                  <img src='https://images.metadata.sky.com/pd-logo/skychb_1303_darknow/164/50' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
+                </a>
+                <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
+            </div>
+            <div class="rightSide">
+                <div class="title-row">Sky Sports Premier League</div>
+                <div class="information-row">
+                    <div class="titleAndDesc">
+                        <h class="title"><%= SkySportsEPL.title %></h>
+                        <div class="truncated-text">
+                          <p class="truncated-content"><%= SkySportsEPL.description %></p>
+                          <p class="full-content"><%= SkySportsEPL.description %></p>
+                        </div>
+                    </div>
+                    <div class="time">
+                        Time: <%= SkySportsEPL.time %>
+                    </div>
+                    <div class="progress"></div>
+                    <div class="progress-completed 4" data-progress="<%= SkySportsEPL.progress %>"></div>       
+                </div>
+            </div>
+            </div>
+          </a>
+          <!--Premier Sports 1-->
+          <a href='premiersports1.html'><div id="premiersports1" class="channel" >
+            <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
+                <a href='/tv-guide-bt-sport-1/' title='Premier Sports 1'>
+                  <img src='https://www.thesportsdb.com/images/media/tvlogo/Premier_Sports.png' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
+                </a>
+                <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
+            </div>
+            <div class="rightSide">
+                <div class="title-row">Premier Sports 1</div>
+                <div class="information-row">
+                    <div class="titleAndDesc">
+                        <h class="title"><%= PremierSports1.title %></h>
+                        <div class="truncated-text">
+                          <p class="truncated-content"><%= PremierSports1.description %></p>
+                          <p class="full-content"><%= PremierSports1.description %></p>
+                        </div>
+                    </div>
+                    <div class="time">
+                        Time: <%= PremierSports1.time %>
+                    </div>
+                    <div class="progress"></div>
+                    <div class="progress-completed 5" data-progress="<%= PremierSports1.progress %>"></div>         
+                </div>
+            </div>
+            </div>
+          </a>
+          <!--Premier Sports 2-->
+          <a href='premiersports2.html'><div id="premiersports2" class="channel" >
+            <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
+                <a href='/tv-guide-bt-sport-1/' title='Premier Sports 2'>
+                  <img src='https://www.thesportsdb.com/images/media/tvlogo/Premier_Sports.png' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
+                </a>
+                <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
+            </div>
+            <div class="rightSide">
+                <div class="title-row">Premier Sports 2</div>
+                <div class="information-row">
+                    <div class="titleAndDesc">
+                        <h class="title"><%= PremierSports2.title %></h>
+                        <div class="truncated-text">
+                          <p class="truncated-content"><%= PremierSports2.description %></p>
+                          <p class="full-content"><%= PremierSports2.description %></p>
+                        </div>
+                    </div>
+                    <div class="time">
+                        Time: <%= PremierSports2.time %>
+                    </div>
+                    <div class="progress"></div>
+                    <div class="progress-completed 6" data-progress="<%= PremierSports2.progress %>"></div>        
+                </div>
+            </div>
+            </div>
+          </a>
+          <!--Sky Sports Main Event-->
+          <a href='skysportsmainevent.html'><div id="skysportsmainevent" class="channel" >
+            <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
+                <a href='/tv-guide-bt-sport-1/' title='Sky Sports Main Evenet'>
+                  <img src='https://e0.365dm.com/tvlogos/channels/1301-Logo.svg?U2t5IFNwb3J0cyBNYWluIEV2ZW50' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
+                </a>
+                <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
+            </div>
+            <div class="rightSide">
+                <div class="title-row">Sky Sports Main Event</div>
+                <div class="information-row">
+                    <div class="titleAndDesc">
+                        <h class="title"><%= SkySportsMainEvent.title %></h>
+                        <div class="truncated-text">
+                          <p class="truncated-content"><%= SkySportsMainEvent.description %></p>
+                          <p class="full-content"><%= SkySportsMainEvent.description %></p>
+                        </div>
+                    </div>
+                    <div class="time">
+                        Time: <%= SkySportsMainEvent.time %>
+                    </div>
+                    <div class="progress"></div>
+                    <div class="progress-completed 7" data-progress="<%= SkySportsMainEvent.progress %>"></div>        
+                </div>
+            </div>
+            </div>
+          </a>
+          <!--Sky Sports Football-->
+          <a href='skysportsfootball.html'><div id="skysportsfootball" class="channel" >
+            <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
+                <a href='/tv-guide-bt-sport-1/' title='Sky Sports Football'>
+                  <img src='https://e0.365dm.com/tvlogos/channels/3838-Logo.svg?U2t5IFNwb3J0cyBGb290YmFsbA==' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
+                </a>
+                <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
+            </div>
+            <div class="rightSide">
+                <div class="title-row">Sky Sports Football</div>
+                <div class="information-row">
+                    <div class="titleAndDesc">
+                        <h class="title"><%= SkySportsFootball.title %></h>
+                        <div class="truncated-text">
+                          <p class="truncated-content"><%= SkySportsFootball.description %></p>
+                          <p class="full-content"><%= SkySportsFootball.description %></p>
+                        </div>
+                    </div>
+                    <div class="time">
+                        Time: <%= SkySportsFootball.time %>
+                    </div>
+                    <div class="progress"></div>
+                    <div class="progress-completed 8" data-progress="<%= SkySportsFootball.progress %>"></div>       
+                </div>
+            </div>
+            </div>
+          </a>
+          <!--Sky Sports News-->
+          <a href='skysportsnews.html'><div id="skysportsnews" class="channel" >
+            <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
+                <a href='/tv-guide-bt-sport-1/' title='Sky Sports News'>
+                  <img src='https://e0.365dm.com/tvlogos/channels/1314-Logo.svg?U2t5IFNwb3J0cyBOZXdz' style='max-width:60px' loading='lazy' alt='TV Guide BT Sport 1' />
+                </a>
+                <img src="/images/play-button.png" style="align-self: center;justify-content: center;" width="50" height="50">
+            </div>
+            <div class="rightSide">
+                <div class="title-row">Sky Sports News</div>
+                <div class="information-row">
+                    <div class="titleAndDesc">
+                        <h class="title"><%= SkySportsNews.title %></h>
+                        <div class="truncated-text">
+                          <p class="truncated-content"><%= SkySportsNews.description %></p>
+                          <p class="full-content"><%= SkySportsNews.description %></p>
+                        </div>
+                    </div>
+                    <div class="time">
+                        Time: <%= SkySportsNews.time %>
+                    </div>
+                    <div class="progress"></div>
+                    <div class="progress-completed 9" data-progress="<%= SkySportsNews.progress %>"></div>         
+                </div>
+            </div>
+            </div>
+          </a>
+        </div>
+        </div>
      <div class="upcoming">
       <h2 style="color: white;font-family: 'Alatsi', sans-serif;font-size: 22px;">Upcoming Premier League Matches</h2>
       <div id="fixtures-container">
@@ -513,7 +517,7 @@
 
              const liveIMG = document.createElement('img');
              liveIMG.classList.add('liveIMG');
-             liveIMG.src = "live.png";
+             liveIMG.src = "images/live.png";
              LiveFixtureContainer.appendChild(liveIMG);
 
              homeTeamContainer.appendChild(gameMinute);
@@ -544,7 +548,49 @@
   fetchData();
 </script>
 
+<!--hover settings-->
+<script>
+ $(document).ready(function() {
+  $(".RightScroll").hover(
+    function() {
+      $(".RightScroll").css("background-color", "#FFFFFF");
+    },
+    function() {
+      $(".RightScroll").css("background-color", "#090229");
+    }
+  );
+
+  $(".LeftScroll").hover(
+    function() {
+      $(".LeftScroll").css("background-color", "#FFFFFF");
+    },
+    function() {
+      $(".LeftScroll").css("background-color", "#090229");
+    }
+  );
+});
+
+
+
+
+  $(document).ready(function() {
+  $(".horizontal-scroll").hover(
+    function() {
+      $(".RightScroll").css("display", "inline");
+      $(".LeftScroll").css("display", "inline");
       
+    },
+    function() {
+      $(".RightScroll").css("display", "none");
+      $(".LeftScroll").css("display", "none");
+    },
+  ); 
+});
+
+
+</script>
+
+
   </body>
 </html>
 
