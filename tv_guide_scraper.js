@@ -69,7 +69,6 @@ async function scrapeData(channel) {
 
       // Extract data for cell1 component
       const cell1TitleElement = btSport1Element.find('.timeline-item.cell1 .title');
-      console.log(cell1TitleElement);
       const cell1Title = cell1TitleElement.clone().children().remove().end().text().trim();
       const cell1Description = cell1TitleElement.find('.sDesc').text().trim();
       const cell1Time = (btSport1Element.find('.timeline-item.cell1 .time').text().trim() + " " + btSport1Element.find('.timeline-item.cell2 .time').text().trim()).slice(0, -1);
