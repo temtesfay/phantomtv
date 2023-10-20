@@ -1,0 +1,6 @@
+#EXTM3U
+#EXT-X-SESSION-DATA:DATA-ID="com.xui.1_5_12r2"
+
+#EXTINF:-1,Sky Sports News HD
+http://xtremity.tv:80/6960044052/8861947865/2484211.ts
+

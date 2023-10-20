@@ -2,9 +2,11 @@ const express = require('express');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const path = require('path');
-const { title } = require('process');
 const { HttpsProxyAgent } = require('https-proxy-agent');
-const request = require('request');
+
+
+const fs = require('fs');
+const xml2js = require('xml2js');
 
 
 
@@ -14,7 +16,7 @@ const port = 80;
 
 const url = 'https://tv-guide-listings.co.uk/';
 const proxyUrl = "http://qxeslhzw-rotate:gcikoi18z3qy@p.webshare.io:80/";
-
+const xmlFilePath = 'skysportseplxml'; // Replace with the path to your XML file
 
 
 const userAgents = [
@@ -87,12 +89,6 @@ async function scrapeData(channel) {
 }
 
 
-
-
-  
-  
-
-
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
 
@@ -102,8 +98,6 @@ app.set('views', path.join(__dirname, 'views'));
 // ... (other imports and code
 app.get('/', async (req, res) => {
   try {
-
-
     const promises = [ scrapeData('#tv-guide-bt-sport-1'), scrapeData('#tv-guide-bt-sport-2'), scrapeData('#tv-guide-bt-sport-3'), scrapeData('#tv-guide-sky-sports-premier-league'), scrapeData('#tv-guide-premier-sports-1'), scrapeData('#tv-guide-premier-sports-2'), scrapeData('#tv-guide-sky-sports-football'), scrapeData('#tv-guide-sky-sports-main-event'),scrapeData('#tv-guide-sky-sports-news') ]; 
     const [ TNTSports1, TNTSports2, TNTSports3, SkySportsEPL, PremierSports1, PremierSports2, SkySportsFootball, SkySportsMainEvent,SkySportsNews ] = await Promise.all(promises);
 
@@ -114,6 +108,106 @@ app.get('/', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
+
+
+
+function getCurrentTimeFormatted() {
+  const now = new Date();
+  const year = now.getUTCFullYear();
+  const month = String(now.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-indexed, so add 1 and pad with 0.
+  const day = String(now.getUTCDate()).padStart(2, '0');
+  const hours = String(now.getUTCHours()).padStart(2, '0');
+  const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+  const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+  const timeZoneOffset = now.getTimezoneOffset(); // Get the time zone offset in minutes.
+
+  // Convert the time zone offset to the desired format (+/-HHMM).
+  const offsetHours = Math.abs(Math.floor(timeZoneOffset / 60));
+  const offsetMinutes = Math.abs(timeZoneOffset % 60);
+  const offsetSign = timeZoneOffset < 0 ? '-' : '+';
+  const offsetFormatted = `${offsetSign}${String(offsetHours).padStart(2, '0')}${String(offsetMinutes).padStart(2, '0')}`;
+
+  // Create the formatted date string.
+  const formattedTime = `${year}${month}${day}${hours}${minutes}${seconds} ${offsetFormatted}`;
+
+  return formattedTime;
+}
+
+// Call the function to get the current time.
+const currentTime = getCurrentTimeFormatted();
+console.log(currentTime);
+
+
+// Read the XML data from the file.
+fs.readFile(xmlFilePath, 'utf-8', (err, data) => {
+  if (err) {
+    console.error('Error reading the XML file:', err);
+  } else {
+    // Data contains the contents of the XML file as a string.
+    const xmlData = data;
+
+    // Now you can use Cheerio to parse the XML data.
+    const cheerio = require('cheerio');
+    const $ = cheerio.load(xmlData, { xmlMode: true });
+    
+     // Select all 'programme' elements and iterate through them.
+$('programme').each((index, element) => {
+  const program = $(element);
+
+  // Extract channel information from the 'channel' element.
+  const channel = $('channel').attr('id');
+
+  // Extract title from the 'title' element.
+  const title = $('title', program).text();
+
+  // Extract start and end times from the 'start' and 'stop' attributes.
+  const start = program.attr('start');
+  const end = program.attr('stop');
+
+ // Extract description from the 'desc' element.
+ const desc = $('desc', program).text();
+  
+  const programs = [{channel,title,desc,start,end}]
+  // console.log(programs)
+
+  // console.log('Channel:', channel);
+  // console.log('Title:', title);
+  // console.log('Desc:', desc);
+  // console.log('Start:', start);
+  // console.log('End:', end);
+  // console.log('---');
+
+  // Example list of program objects with start and stop times
+
+const currentUtc = "20231020083000 +0200";
+
+let currentProgram = null;
+
+for (const program of programs) {
+  const startTime = program.start;
+  const endTime = program.stop;
+
+  if (currentUtc >= startTime && currentUtc <= endTime) {
+    currentProgram = program;
+    break; // Found the current program, no need to continue searching
+  }
+}
+
+if (currentProgram) {
+  console.log('Currently playing program:');
+  console.log('Title:', currentProgram.title);
+  console.log('Start Time:', currentProgram.start);
+  console.log('End Time:', currentProgram.stop);
+} else {
+  // console.log('No program is currently playing.');
+}
+
+  });
+  }
+});
+
+
+
 
 
 // Serve static files (e.g., CSS, JS) from the "public" directory
