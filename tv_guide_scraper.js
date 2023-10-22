@@ -7,7 +7,7 @@ const { HttpsProxyAgent } = require('https-proxy-agent');
 
 const fs = require('fs');
 const xml2js = require('xml2js');
-const cors=require('cors')
+const cors = require('cors');
 
 
 
@@ -97,6 +97,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(cors({origin:true}))
+
 
 // ... (other imports and code
 app.get('/', async (req, res) => {
@@ -250,12 +251,15 @@ app.get('/api/programmes', async (req, res) => {
       const data = await response.json();
       res.json(data);
     } else {
+      console.error('API Error:', response.status, await response.text()); // Log error details
       res.status(response.status).json({ error: 'Failed to fetch data from the external API' });
     }
   } catch (error) {
+    console.error('Request Error:', error); // Log error details
     res.status(500).json({ error: 'Failed to fetch data from the external API' });
   }
 });
+
 
 
 
