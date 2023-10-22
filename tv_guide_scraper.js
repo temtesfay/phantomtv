@@ -10,14 +10,11 @@ const xml2js = require('xml2js');
 const cors = require('cors');
 
 
-
-
 const app = express();
 const port = 80;
 
 const url = 'https://tv-guide-listings.co.uk/';
 const proxyUrl = "http://qxeslhzw-rotate:gcikoi18z3qy@p.webshare.io:80/";
-const xmlFilePath = 'skysportseplxml'; // Replace with the path to your XML file
 
 
 const userAgents = [
@@ -96,7 +93,13 @@ app.set('view engine', 'ejs');
 // Serve the "views" folder for EJS files
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(cors({origin:true}))
+
+
+const corsOptions = {
+  origin: 'https://squid-app-x6hio.ondigitalocean.app/',
+};
+
+app.use(cors(corsOptions));
 
 
 // ... (other imports and code
@@ -114,101 +117,6 @@ app.get('/', async (req, res) => {
 });
 
 
-
-function getCurrentTimeFormatted() {
-  const now = new Date();
-  const year = now.getUTCFullYear();
-  const month = String(now.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-indexed, so add 1 and pad with 0.
-  const day = String(now.getUTCDate()).padStart(2, '0');
-  const hours = String(now.getUTCHours()).padStart(2, '0');
-  const minutes = String(now.getUTCMinutes()).padStart(2, '0');
-  const seconds = String(now.getUTCSeconds()).padStart(2, '0');
-  const timeZoneOffset = now.getTimezoneOffset(); // Get the time zone offset in minutes.
-
-  // Convert the time zone offset to the desired format (+/-HHMM).
-  const offsetHours = Math.abs(Math.floor(timeZoneOffset / 60));
-  const offsetMinutes = Math.abs(timeZoneOffset % 60);
-  const offsetSign = timeZoneOffset < 0 ? '-' : '+';
-  const offsetFormatted = `${offsetSign}${String(offsetHours).padStart(2, '0')}${String(offsetMinutes).padStart(2, '0')}`;
-
-  // Create the formatted date string.
-  const formattedTime = `${year}${month}${day}${hours}${minutes}${seconds} ${offsetFormatted}`;
-
-  return formattedTime;
-}
-
-// Call the function to get the current time.
-const currentTime = getCurrentTimeFormatted();
-// console.log(currentTime);
-
-
-// Read the XML data from the file.
-fs.readFile(xmlFilePath, 'utf-8', (err, data) => {
-  if (err) {
-    console.error('Error reading the XML file:', err);
-  } else {
-    // Data contains the contents of the XML file as a string.
-    const xmlData = data;
-
-    // Now you can use Cheerio to parse the XML data.
-    const cheerio = require('cheerio');
-    const $ = cheerio.load(xmlData, { xmlMode: true });
-    
-     // Select all 'programme' elements and iterate through them.
-$('programme').each((index, element) => {
-  const program = $(element);
-
-  // Extract channel information from the 'channel' element.
-  const channel = $('channel').attr('id');
-
-  // Extract title from the 'title' element.
-  const title = $('title', program).text();
-
-  // Extract start and end times from the 'start' and 'stop' attributes.
-  const start = program.attr('start');
-  const end = program.attr('stop');
-
- // Extract description from the 'desc' element.
- const desc = $('desc', program).text();
-  
-  const programs = [{channel,title,desc,start,end}]
-  // console.log(programs)
-
-  // console.log('Channel:', channel);
-  // console.log('Title:', title);
-  // console.log('Desc:', desc);
-  // console.log('Start:', start);
-  // console.log('End:', end);
-  // console.log('---');
-
-  // Example list of program objects with start and stop times
-
-const currentUtc = "20231020083000 +0200";
-
-let currentProgram = null;
-
-for (const program of programs) {
-  const startTime = program.start;
-  const endTime = program.stop;
-
-  if (currentUtc >= startTime && currentUtc <= endTime) {
-    currentProgram = program;
-    break; // Found the current program, no need to continue searching
-  }
-}
-
-if (currentProgram) {
-  console.log('Currently playing program:');
-  console.log('Title:', currentProgram.title);
-  console.log('Start Time:', currentProgram.start);
-  console.log('End Time:', currentProgram.stop);
-} else {
-  // console.log('No program is currently playing.');
-}
-
-  });
-  }
-});
 
 // Replace 'YOUR_BEARER_TOKEN' with your actual bearer token
 const bearerToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZGNhZDVkMjE3NzhlNTRlMjVmMjU0ODIwY2Q2MDlkZjg3MjE3OTI3MzQyOTRhNjliYmE3YTM4NmNiZmVjMTE0Mzc4MWFiNmM4OWUwNGJiYzUiLCJpYXQiOjE2OTc4Njk1NzMsIm5iZiI6MTY5Nzg2OTU3MywiZXhwIjoxNzI5NDkxOTczLCJzdWIiOiIxNDA4NzEiLCJzY29wZXMiOltdfQ.pmdv5PrU6Q1O0oX4cTJCMqADj2hUIcjsY6Q8mSgFG8BUXVXr0hMmgsySfM06xHUfJVz7vaSyBjh0t9jo06dkclreBu75jV4WTe2PYOMksyj62kEg4_7udT7s2aUACKZq17MpqgGx1OYuYAjE1jWkcts3JgZdo5fPZjWyRbEZA9RfZf9Ry2hcTKwVrPz3YPpwP8_liGp5sFtq5CdSEEBDcFKW1TnJEuT1JHL0d9x_BwFqeQP2D30RhR0AeRtq1EGqEhYGWY-FRPFvFICmEGuONsf47UmJz1T-D1hvO7VTDZjRCymc-PtM23mCFbH9emhRXEJMw2n74V8rJ2mSHTsePwyfXQj5kdHO6lGU-JrgOJmGLRuvlLTtxqT8lddCjL6oFwSgc1qfWmu8xerbn9ug4ttLVGWGWwtIp3DvrSHy_HpDse3ZyjXhqrE86HwpYHmCQxf5sf1akqxi1lq-2yc3v7h-QjxyuzB6ckX5uG6mJzUNPZmqBasKVQaVXgSabvtW2lc9iqiTImr8ni2x0ehX32j_gL5UziIafvKqxbz2HVWopKH56xGK8jDMU-N6AWNCQ5e4H9QmDFRJ6YY-qLy7EqrTvB5GXNXK0y_abI2C8W3fERnS6OTbzdBMMk1qsAbUU_j9hS4WYUlJUfwmYOZCnSyUxND3Py03qBmqJxaJQnw';
@@ -259,8 +167,6 @@ app.get('/api/programmes', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch data from the external API' });
   }
 });
-
-
 
 
 // Serve static files (e.g., CSS, JS) from the "public" directory
