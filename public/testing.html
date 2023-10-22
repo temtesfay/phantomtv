@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Programmes</title>
+</head>
+<body>
+    <h1>Programmes</h1>
+    
+    <div id="programmes"></div>
+    <script>
+        // Make a request to your server's API endpoint
+        fetch('/api/programmes')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                // Process and display the data
+                const programmesDiv = document.getElementById('programmes');
+                data['TNTSport1.uk'].forEach(program => {
+                    // Render program details here
+                    const programElement = document.createElement('div');
+                    programElement.innerHTML = `
+                        <h2>Title: ${program.title}</h2>
+                        <p>Subtitle: ${program['sub-title']}</p>
+                        <p>Description: ${program.desc}</p>
+                        <p>Start UTC: ${program.start_utc}</p>
+                        <p>Stop UTC: ${program.stop_utc}</p>
+                        <hr>
+                    `;
+                    programmesDiv.appendChild(programElement);
+                });
+            })
+            .catch(error => console.error('An error occurred:', error));
+    </script>
+</body>
+</html>

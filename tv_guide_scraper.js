@@ -7,6 +7,7 @@ const { HttpsProxyAgent } = require('https-proxy-agent');
 
 const fs = require('fs');
 const xml2js = require('xml2js');
+const cors=require('cors')
 
 
 
@@ -95,6 +96,8 @@ app.set('view engine', 'ejs');
 // Serve the "views" folder for EJS files
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(cors({origin:true}))
+
 // ... (other imports and code
 app.get('/', async (req, res) => {
   try {
@@ -135,7 +138,7 @@ function getCurrentTimeFormatted() {
 
 // Call the function to get the current time.
 const currentTime = getCurrentTimeFormatted();
-console.log(currentTime);
+// console.log(currentTime);
 
 
 // Read the XML data from the file.
@@ -206,7 +209,53 @@ if (currentProgram) {
   }
 });
 
+// Replace 'YOUR_BEARER_TOKEN' with your actual bearer token
+const bearerToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZGNhZDVkMjE3NzhlNTRlMjVmMjU0ODIwY2Q2MDlkZjg3MjE3OTI3MzQyOTRhNjliYmE3YTM4NmNiZmVjMTE0Mzc4MWFiNmM4OWUwNGJiYzUiLCJpYXQiOjE2OTc4Njk1NzMsIm5iZiI6MTY5Nzg2OTU3MywiZXhwIjoxNzI5NDkxOTczLCJzdWIiOiIxNDA4NzEiLCJzY29wZXMiOltdfQ.pmdv5PrU6Q1O0oX4cTJCMqADj2hUIcjsY6Q8mSgFG8BUXVXr0hMmgsySfM06xHUfJVz7vaSyBjh0t9jo06dkclreBu75jV4WTe2PYOMksyj62kEg4_7udT7s2aUACKZq17MpqgGx1OYuYAjE1jWkcts3JgZdo5fPZjWyRbEZA9RfZf9Ry2hcTKwVrPz3YPpwP8_liGp5sFtq5CdSEEBDcFKW1TnJEuT1JHL0d9x_BwFqeQP2D30RhR0AeRtq1EGqEhYGWY-FRPFvFICmEGuONsf47UmJz1T-D1hvO7VTDZjRCymc-PtM23mCFbH9emhRXEJMw2n74V8rJ2mSHTsePwyfXQj5kdHO6lGU-JrgOJmGLRuvlLTtxqT8lddCjL6oFwSgc1qfWmu8xerbn9ug4ttLVGWGWwtIp3DvrSHy_HpDse3ZyjXhqrE86HwpYHmCQxf5sf1akqxi1lq-2yc3v7h-QjxyuzB6ckX5uG6mJzUNPZmqBasKVQaVXgSabvtW2lc9iqiTImr8ni2x0ehX32j_gL5UziIafvKqxbz2HVWopKH56xGK8jDMU-N6AWNCQ5e4H9QmDFRJ6YY-qLy7EqrTvB5GXNXK0y_abI2C8W3fERnS6OTbzdBMMk1qsAbUU_j9hS4WYUlJUfwmYOZCnSyUxND3Py03qBmqJxaJQnw';
 
+
+
+
+// Create an endpoint that proxies the external API  
+// beINSports1En.qa
+// beINSports2En.qa
+// SkySportsPremiereLeague.uk 
+// SkySportsMainEvent.uk
+// SkySportsFootball.uk
+// SkySportsNews.uk
+// ViaplaySports1.uk
+// ViaplaySports2.uk
+
+
+// Set the time zone to UK time (GMT/UTC)
+const options = { timeZone: 'Europe/London' };
+const currentDate = new Date().toLocaleString('en-GB', options);
+
+
+const day = currentDate.slice(0,2)
+const month = currentDate.slice(3,5)
+const year = currentDate.slice(6,10)
+
+// Create the formatted date string
+const formattedDate = `${year}-${month}-${day}`;
+
+app.get('/api/programmes', async (req, res) => {
+  try {
+    const response = await fetch(`https://epg.best/api/programmes?date=${formattedDate}&channels[]=TNTSport1.uk&channels[]=TNTSport2.uk&channels[]=TNTSport3.uk&channels[]=beINSports1En.qa&channels[]=beINSports2En.qa&channels[]=SkySportsPremiereLeague.uk&channels[]=SkySportsMainEvent.uk&channels[]=SkySportsFootball.uk&channels[]=SkySportsNews.uk&channels[]=ViaplaySports1.uk&channels[]=ViaplaySports2.uk`, {
+      headers: {
+        'Authorization': `Bearer ${bearerToken}`
+      }
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      res.json(data);
+    } else {
+      res.status(response.status).json({ error: 'Failed to fetch data from the external API' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch data from the external API' });
+  }
+});
 
 
 
