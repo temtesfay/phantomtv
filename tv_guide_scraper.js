@@ -168,6 +168,24 @@ app.get('/api/programmes', async (req, res) => {
   }
 });
 
+app.get('/api/programmes-proxy', async (req, res) => {
+  try {
+    const response = await fetch(`https://epg.best/api/programmes?date=${formattedDate}&channels[]=TNTSport1.uk&channels[]=TNTSport2.uk&channels[]=TNTSport3.uk&channels[]=beINSports1En.qa&channels[]=beINSports2En.qa&channels[]=SkySportsPremiereLeague.uk&channels[]=SkySportsMainEvent.uk&channels[]=SkySportsFootball.uk&channels[]=SkySportsNews.uk&channels[]=ViaplaySports1.uk&channels[]=ViaplaySports2.uk`, {
+      
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      res.json(data);
+    } else {
+      res.status(response.status).json({ error: 'Failed to fetch data from the external API' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch data from the external API' });
+  }
+});
+
+
 
 // Serve static files (e.g., CSS, JS) from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
