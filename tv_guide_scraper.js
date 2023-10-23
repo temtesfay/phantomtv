@@ -4,7 +4,6 @@ const cheerio = require('cheerio');
 const path = require('path');
 const { HttpsProxyAgent } = require('https-proxy-agent');
 const fetch = require('node-fetch');
-// import fetch from 'node-fetch';
 
 
 
@@ -97,11 +96,21 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 
-const corsOptions = {
-  origin: 'https://squid-app-x6hio.ondigitalocean.app',
-};
+// const corsOptions = {
+//   origin: 'https://squid-app-x6hio.ondigitalocean.app',
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(origin));
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "OPTIONS, GET, POST, PUT, PATCH, DELETE" // what matters here is that OPTIONS is present
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization", "Access-Control-Allow-Origin");
+  next();
+});
 
 
 // ... (other imports and code
