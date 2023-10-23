@@ -3,6 +3,9 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const path = require('path');
 const { HttpsProxyAgent } = require('https-proxy-agent');
+const fetch = require('node-fetch');
+// import fetch from 'node-fetch';
+
 
 
 const fs = require('fs');
@@ -94,9 +97,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 
-
 const corsOptions = {
-  origin: 'https://squid-app-x6hio.ondigitalocean.app/',
+  origin: 'https://squid-app-x6hio.ondigitalocean.app',
 };
 
 app.use(cors(corsOptions));
@@ -117,11 +119,8 @@ app.get('/', async (req, res) => {
 });
 
 
-
 // Replace 'YOUR_BEARER_TOKEN' with your actual bearer token
 const bearerToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZGNhZDVkMjE3NzhlNTRlMjVmMjU0ODIwY2Q2MDlkZjg3MjE3OTI3MzQyOTRhNjliYmE3YTM4NmNiZmVjMTE0Mzc4MWFiNmM4OWUwNGJiYzUiLCJpYXQiOjE2OTc4Njk1NzMsIm5iZiI6MTY5Nzg2OTU3MywiZXhwIjoxNzI5NDkxOTczLCJzdWIiOiIxNDA4NzEiLCJzY29wZXMiOltdfQ.pmdv5PrU6Q1O0oX4cTJCMqADj2hUIcjsY6Q8mSgFG8BUXVXr0hMmgsySfM06xHUfJVz7vaSyBjh0t9jo06dkclreBu75jV4WTe2PYOMksyj62kEg4_7udT7s2aUACKZq17MpqgGx1OYuYAjE1jWkcts3JgZdo5fPZjWyRbEZA9RfZf9Ry2hcTKwVrPz3YPpwP8_liGp5sFtq5CdSEEBDcFKW1TnJEuT1JHL0d9x_BwFqeQP2D30RhR0AeRtq1EGqEhYGWY-FRPFvFICmEGuONsf47UmJz1T-D1hvO7VTDZjRCymc-PtM23mCFbH9emhRXEJMw2n74V8rJ2mSHTsePwyfXQj5kdHO6lGU-JrgOJmGLRuvlLTtxqT8lddCjL6oFwSgc1qfWmu8xerbn9ug4ttLVGWGWwtIp3DvrSHy_HpDse3ZyjXhqrE86HwpYHmCQxf5sf1akqxi1lq-2yc3v7h-QjxyuzB6ckX5uG6mJzUNPZmqBasKVQaVXgSabvtW2lc9iqiTImr8ni2x0ehX32j_gL5UziIafvKqxbz2HVWopKH56xGK8jDMU-N6AWNCQ5e4H9QmDFRJ6YY-qLy7EqrTvB5GXNXK0y_abI2C8W3fERnS6OTbzdBMMk1qsAbUU_j9hS4WYUlJUfwmYOZCnSyUxND3Py03qBmqJxaJQnw';
-
-
 
 
 // Create an endpoint that proxies the external API  
@@ -171,7 +170,6 @@ app.get('/api/programmes', async (req, res) => {
 app.get('/api/programmes-proxy', async (req, res) => {
   try {
     const response = await fetch(`https://epg.best/api/programmes?date=${formattedDate}&channels[]=TNTSport1.uk&channels[]=TNTSport2.uk&channels[]=TNTSport3.uk&channels[]=beINSports1En.qa&channels[]=beINSports2En.qa&channels[]=SkySportsPremiereLeague.uk&channels[]=SkySportsMainEvent.uk&channels[]=SkySportsFootball.uk&channels[]=SkySportsNews.uk&channels[]=ViaplaySports1.uk&channels[]=ViaplaySports2.uk`, {
-      
     });
 
     if (response.ok) {
