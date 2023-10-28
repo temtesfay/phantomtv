@@ -75,6 +75,7 @@ async function scrapeData(channel) {
       const cell1Description = cell1TitleElement.find('.sDesc').text().trim();
       const cell1Time = (btSport1Element.find('.timeline-item.cell1 .time').text().trim() + " " + btSport1Element.find('.timeline-item.cell2 .time').text().trim()).slice(0, -1);
       const progressTime = btSport1Element.find('.progress span').attr('style').slice(6, -2);
+      console.log(progressTime)
 
       // Return the scraped data as an object
       return { title: cell1Title, description: cell1Description, time: cell1Time, progress: progressTime };
@@ -146,6 +147,7 @@ const bearerToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIj
 // Set the time zone to UK time (GMT/UTC)
 const options = { timeZone: 'Europe/London' };
 const currentDate = new Date().toLocaleString('en-GB', options);
+// console.log(currentDate)
 
 
 const day = currentDate.slice(0,2)
@@ -154,6 +156,7 @@ const year = currentDate.slice(6,10)
 
 // Create the formatted date string
 const formattedDate = `${year}-${month}-${day}`;
+console.log(formattedDate)
 
 app.get('/api/programmes', async (req, res) => {
   try {
