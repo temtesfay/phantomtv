@@ -10,6 +10,7 @@ const fetch = require('node-fetch');
 const fs = require('fs');
 const xml2js = require('xml2js');
 const cors = require('cors');
+const { title } = require('process');
 
 
 const app = express();
@@ -42,52 +43,177 @@ function getRandomUserAgent() {
 }
 
 
-const agent = new HttpsProxyAgent(proxyUrl);
-// Function to scrape data
-async function scrapeData(channel) {
-  try {
-    const headers = {
-      'User-Agent': getRandomUserAgent(),
-      'Accept': 'text/html, image/avif, image/webp, image/apng, image/svg+xml, */*;q=0.8',
-      'Accept-Language': 'en-US, en;q=0.9',
-      'Accept-Encoding': 'gzip, deflate, br',
-      'Connection': 'keep-alive',
-      'Upgrade-Insecure-Requests': '1',
-      'Sec-Fetch-Dest': 'document',
-      'Sec-Fetch-Mode': 'navigate',
-      'Sec-Fetch-User': '?1',
-      'Sec-Fetch-Site': 'none',
-    };
 
-    const response = await axios.get(url, {
-      headers,
-      httpsAgent: agent,
-      timeout: 10000,
-    });
 
-    if (response.status === 200) {
-      const $ = cheerio.load(response.data);
-      const btSport1Element = $(channel);
-
-      // Extract data for cell1 component
-      const cell1TitleElement = btSport1Element.find('.timeline-item.cell1 .title');
-      const cell1Title = cell1TitleElement.clone().children().remove().end().text().trim();
-      const cell1Description = cell1TitleElement.find('.sDesc').text().trim();
-      const cell1Time = (btSport1Element.find('.timeline-item.cell1 .time').text().trim() + " " + btSport1Element.find('.timeline-item.cell2 .time').text().trim()).slice(0, -1);
-      const progressTime = btSport1Element.find('.progress span').attr('style').slice(6, -2);
-      console.log(progressTime)
-
-      // Return the scraped data as an object
-      return { title: cell1Title, description: cell1Description, time: cell1Time, progress: progressTime };
-    } else {
-      console.log(`Failed to fetch the data. Status code: ${response.status}`);
-      throw new Error('Failed to fetch data');
-    }
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    throw error;
-  }
+  
+  // Replace this with the URL of the API you want to fetch data from
+async function fetchData(channel,channelID) {
+const url = `http://localhost/api/programmes`;
+const options = {
+method: 'GET',
+headers: {
 }
+};
+
+try {
+const response = await fetch(url, options);
+const data = await response.json();
+const fixtures = data.response;
+// console.log(response.status);
+// console.log(data.data[channel]);
+
+const apiData = data.data[channel];
+
+// // Get the current timestamp (in seconds since Unix epoch)
+const currentTimestamp = Math.floor(Date.now() / 1000);
+
+
+
+
+// Find the currently live program
+const liveProgram = apiData.find(program => {
+  return program.start_utc <= currentTimestamp && currentTimestamp <= program.stop_utc;
+});
+
+if (liveProgram) {
+// Display or return information about the currently live program
+const programTitle = liveProgram.title;
+const programSubTitle = liveProgram['sub-title'];
+const programDescription = liveProgram.desc;
+const programStartTimeStamp = liveProgram.start_utc * 1000; // Convert to milliseconds
+const programEndTimeStamp = liveProgram.stop_utc * 1000; // Convert to milliseconds
+
+
+
+
+// Specify the time zone for Edmonton (Mountain Daylight Time)
+const timeZone = 'America/Edmonton';
+const options = {
+timeZone,
+hour: '2-digit',
+minute: '2-digit',
+hour12: true,
+};
+
+const formattedStartTime = new Date(programStartTimeStamp).toLocaleString('en-US', options);
+const formattedEndTime = new Date(programEndTimeStamp).toLocaleString('en-US', options);
+
+// Create the time range string
+const timeRange = `${formattedStartTime} - ${formattedEndTime}`;
+
+
+
+// Replace these values with your actual timestamps
+// const currentTimestamp = 1698398348;
+const startTimestamp = liveProgram.start_utc;
+const stopTimestamp = liveProgram.stop_utc;
+// Calculate the time duration between start and stop timestamps
+const duration = stopTimestamp - startTimestamp;
+// Calculate the time elapsed from the start timestamp to the current timestamp
+const elapsedTime = currentTimestamp - startTimestamp;
+// Calculate the progress as a percentage
+const progress = (elapsedTime / duration) * 100;
+
+// progressThingy = document.getElementById('TNTprogress-completed')
+// progressThingy.setAttribute("data-progress",progress)
+
+// progressCompleted = channelName.querySelector(".progress-completed")
+// progressCompleted.setAttribute("data-progress", progress)
+// console.log(channelName.querySelector(".progress-completed"))
+// const progressValue = parseFloat(progressCompleted.getAttribute('data-progress'));
+//       const widthValue = progressValue / 100;
+//       progressCompleted.style.width = `calc(${widthValue} * 235px)`;
+
+  // console.log(programTitle)
+  return { title: programTitle + ': ' + programSubTitle , description: programDescription, time:timeRange, progress: progress };
+
+console.log("Currently Live Program:");
+console.log("Title:", programTitle);
+console.log("Sub-Title:", programSubTitle);
+console.log("Description:", programDescription);
+console.log("Time:", timeRange);
+} else {
+console.log("No live program is currently airing.");
+return { title:'No live program is currently airing.' , description: '', time:'', progress: 0 };
+   
+}
+
+
+} catch (error) {
+console.error(error);
+}
+}
+
+
+
+
+
+
+
+
+// fetchData('SkySportsPremiereLeague.uk');
+fetchData('TNTSport1.uk','tnt-sport1');
+fetchData('TNTSport2.uk','tnt-sport2');
+// fetchData('TNTSport3.uk','tnt-sport3');
+// fetchData('ViaplaySports1.uk','premiersports1');
+// fetchData('ViaplaySports2.uk','premiersports2');
+// fetchData('SkySportsPremiereLeague.uk','skysportsepl');
+// fetchData('SkySportsMainEvent.uk','skysportsmainevent');
+// fetchData('SkySportsMainEvent.uk','skysportsmainevent');
+// fetchData('SkySportsFootball.uk','skysportsfootball');
+// fetchData('SkySportsNews.uk','skysportsnews');
+
+
+
+
+
+
+// const agent = new HttpsProxyAgent(proxyUrl);
+// Function to scrape data
+// async function scrapeData(channel) {
+//   try {
+//     const headers = {
+//       'User-Agent': getRandomUserAgent(),
+//       'Accept': 'text/html, image/avif, image/webp, image/apng, image/svg+xml, */*;q=0.8',
+//       'Accept-Language': 'en-US, en;q=0.9',
+//       'Accept-Encoding': 'gzip, deflate, br',
+//       'Connection': 'keep-alive',
+//       'Upgrade-Insecure-Requests': '1',
+//       'Sec-Fetch-Dest': 'document',
+//       'Sec-Fetch-Mode': 'navigate',
+//       'Sec-Fetch-User': '?1',
+//       'Sec-Fetch-Site': 'none',
+//     };
+
+//     const response = await axios.get(url, {
+//       headers,
+//       // httpsAgent: agent,
+//       timeout: 10000,
+//     });
+
+//     if (response.status === 200) {
+//       const $ = cheerio.load(response.data);
+//       const btSport1Element = $(channel);
+
+//       // Extract data for cell1 component
+//       const cell1TitleElement = btSport1Element.find('.timeline-item.cell1 .title');
+//       const cell1Title = cell1TitleElement.clone().children().remove().end().text().trim();
+//       const cell1Description = cell1TitleElement.find('.sDesc').text().trim();
+//       const cell1Time = (btSport1Element.find('.timeline-item.cell1 .time').text().trim() + " " + btSport1Element.find('.timeline-item.cell2 .time').text().trim()).slice(0, -1);
+//       const progressTime = btSport1Element.find('.progress span').attr('style').slice(6, -2);
+//       console.log(progressTime)
+
+//       // Return the scraped data as an object
+//       return { title: cell1Title, description: cell1Description, time: cell1Time, progress: progressTime };
+//     } else {
+//       console.log(`Failed to fetch the data. Status code: ${response.status}`);
+//       throw new Error('Failed to fetch data');
+//     }
+//   } catch (error) {
+//     console.error('Error fetching data:', error);
+//     throw error;
+//   }
+// }
 
 
 // Set EJS as the view engine
@@ -117,7 +243,7 @@ app.use((req, res, next) => {
 // ... (other imports and code
 app.get('/', async (req, res) => {
   try {
-    const promises = [ scrapeData('#tv-guide-bt-sport-1'), scrapeData('#tv-guide-bt-sport-2'), scrapeData('#tv-guide-bt-sport-3'), scrapeData('#tv-guide-sky-sports-premier-league'), scrapeData('#tv-guide-premier-sports-1'), scrapeData('#tv-guide-premier-sports-2'), scrapeData('#tv-guide-sky-sports-football'), scrapeData('#tv-guide-sky-sports-main-event'),scrapeData('#tv-guide-sky-sports-news') ]; 
+    const promises = [fetchData('TNTSport1.uk','tnt-sport1'), fetchData('TNTSport2.uk','tnt-sport2'), fetchData('TNTSport3.uk','tnt-sport3'), fetchData('SkySportsPremiereLeague.uk','skysportsepl'), fetchData('ViaplaySports1.uk','premiersports1'),fetchData('ViaplaySports2.uk','premiersports2'),fetchData('SkySportsMainEvent.uk','skysportsmainevent'),fetchData('SkySportsFootball.uk','skysportsfootball'), fetchData('SkySportsNews.uk','skysportsnews')]; 
     const [ TNTSports1, TNTSports2, TNTSports3, SkySportsEPL, PremierSports1, PremierSports2, SkySportsFootball, SkySportsMainEvent,SkySportsNews ] = await Promise.all(promises);
 
     res.render('index', { TNTSports1 , TNTSports2,TNTSports3,SkySportsEPL,SkySportsFootball,

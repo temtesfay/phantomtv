@@ -3,379 +3,380 @@
 
 @media only screen and  (max-device-width: 767px) { 
 
-html{
-    height:100%; /* ✔️ Height on the parent will fix this issue. */
-    overflow-x: hidden;
-  }
-
-body {
-    font-size: 14px;
-    /* overflow-x: hidden; */
-    background-color: #090229;
-    color:white;
-    height: 100%;
-    width:100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
-    font-family: 'Alatsi', sans-serif;
-  }
-
-
-body::-webkit-scrollbar {
-    width: 8px;
+  html{
+      height:100%; /* ✔️ Height on the parent will fix this issue. */
+      overflow-x: hidden;
+    }
+  
+  body {
+      font-size: 14px;
+      /* overflow-x: hidden; */
+      background-color: #090229;
+      color:white;
+      height: 100%;
+      width:100%;
+      margin: 0px;
+      padding: 0px;
+      overflow-x: hidden;
+      font-family: 'Alatsi', sans-serif;
+    }
+  
+  
+  body::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    body::-webkit-scrollbar-track {
+      background: grey;
+    }
+    
+    body::-webkit-scrollbar-thumb {
+      background: white;
+      border-radius: 5px;
+    }
+    
+    body::-webkit-scrollbar-thumb:hover {
+      background: rgb(119, 119, 143);
+    }
+  
+    .horizontal-scroll {
+      display: flex;
+      align-items: center; 
+      /* width:300px; */
+      height:130px;
+      margin-left: 5px;
+      margin-bottom: 15px;
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch; 
+    }
+  
+    .LeftScroll {
+      display:none;
+      background-color: #090229; 
+      /* opacity: 0.8; */
+      border: 1px solid white;
+      box-shadow: 0 0 10px #090229;
+      padding: 10px 8px;
+      margin: 0 0px;
+      z-index: 1;
+      cursor: pointer;
+      transition: 1s;
+      position: absolute;
+      left:0;
+      /* top:120px; */
+      height:40px;
+      width:40px;
+      align-self:self-start;
   }
   
-  body::-webkit-scrollbar-track {
-    background: grey;
-  }
-  
-  body::-webkit-scrollbar-thumb {
-    background: white;
-    border-radius: 5px;
-  }
-  
-  body::-webkit-scrollbar-thumb:hover {
-    background: rgb(119, 119, 143);
-  }
-
-  .horizontal-scroll {
-    display: flex;
-    align-items: center; 
-    /* width:300px; */
-    height:130px;
-    margin-left: 5px;
-    margin-bottom: 15px;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch; 
-  }
-
-  .LeftScroll {
-    display:none;
+  .RightScroll {
+      display:none;
     background-color: #090229; 
-    /* opacity: 0.8; */
+      /* opacity: 0.8; */
+      border: 1px solid white;
+      box-shadow: 0 0 10px #090229;
+      padding: 10px 8px;
+      margin: 0 0px;
+      z-index: 1;
+      cursor: pointer;
+      transition: 1s;
+      position: absolute;
+      right:0;
+      /* top:120px; */
+      height:40px;
+      width:40px;
+      align-self: self-start;
+  
+  }
+  
+  
+  
+  
+  .live-channels-container {
+      display: flex;
+      /* height:100%; */
+      flex-direction: row;
+      gap:3px;
+      flex-direction: row;
+      /* justify-content: flex-start; */
+      /* align-items: center; */
+      position: relative; 
+      overflow-x: auto;
+      overflow-y:none;
+      -webkit-overflow-scrolling: touch;
+  
+  }
+  
+  .channel {
+    display: flex; background-color:#140a3d; color: white;width:300px;height:110px;padding:5px;padding-bottom: 15px;border-radius: 3%;font-family:'Pragati Narrow', sans-serif;
+    overflow-x: none;
+  }
+  
+  
+  .channel:hover {
+      transform: scale(1.05);
+        border: 1px solid white;
+        cursor: pointer;
+  }
+  
+  p{
+      margin: 0;
+      padding: 0;
+  }
+  .truncated-text {
+      position: relative;
+      width: 235px;
+    } 
+  
+    .truncated-content {
+    }
+  
+  
+  
+    .truncated-content,
+    .full-content {
+      font-size: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .full-content {
+      display: none;
+    }
+    .truncated-text:hover .full-content {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 5px;
+      border-radius: 4px;
+      z-index: 1;
+    }
+  
+    .title {
+      max-height: 50px;
+      max-width: 235px;
+      display: inline-block;
+      width: 235px;
+      height: auto;
+      font-size: 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /* white-space: nowrap; */
+    }
+    
+    
+  .leftSide {}
+  
+  .rightSide {
+      width:300px;
+  }
+  
+  .title-row {
+    margin-bottom: 10px;border: 1px solid #472C82;border-radius: 8%;width:fit-content
+  }
+  
+  .information-row {}
+  
+  .titleAndDesc {}
+  
+  .time {
+    margin-top: 10px;font-size: 13px;background-color: #472C82;
+  }
+  
+  .progress {
+    background-color: #472C82; height:5px;
+  }
+  
+  .progress-completed,.progress-completed2,.progress-completed3,.progress-completed4 {
+      background-color: pink; 
+      height:5px;
+  }
+  
+  
+  /* api football style  */
+  
+  .data-container {
+    color: white;
+    width: auto;
+    height: 60px;
+    background-color: #140a3d;
+    padding: 25px;
+    border-radius: 2%;
+    position: relative;
+  }
+  
+  .data-container:hover {
+    /* background-color: blue; */
+    transform: scale(1.1);
     border: 1px solid white;
-    box-shadow: 0 0 10px #090229;
-    padding: 10px 8px;
-    margin: 0 0px;
-    z-index: 1;
     cursor: pointer;
-    transition: 1s;
-    position: absolute;
-    left:0;
-    /* top:120px; */
-    height:40px;
-    width:40px;
-    align-self:self-start;
-}
-
-.RightScroll {
-    display:none;
-  background-color: #090229; 
-    /* opacity: 0.8; */
+  }
+  
+  .live-data-container {
+    border: 1px solid red;
+    color: white;
+    width: auto;
+    height: 60px;
+    background-color: #140a3d;
+    padding: 25px;
+    border-radius: 2%;
+    position: relative;
+  }
+  
+  .live-data-container:hover {
+    /* background-color: blue; */
+    transform: scale(1.1);
     border: 1px solid white;
-    box-shadow: 0 0 10px #090229;
-    padding: 10px 8px;
-    margin: 0 0px;
-    z-index: 1;
     cursor: pointer;
-    transition: 1s;
-    position: absolute;
-    right:0;
-    /* top:120px; */
-    height:40px;
-    width:40px;
-    align-self: self-start;
-
-}
-
-
-
-
-.live-channels-container {
+  }
+  
+  #fixtures-container {
     display: flex;
-    /* height:100%; */
-    flex-direction: row;
-    gap:3px;
-    flex-direction: row;
-    /* justify-content: flex-start; */
-    /* align-items: center; */
+    flex-direction: row; /* Add this line */
+    gap: 10px;
+    width: 100%;
+    height:230px;
     position: relative; 
     overflow-x: auto;
     overflow-y:none;
     -webkit-overflow-scrolling: touch;
-
-}
-
-.channel {
-  display: flex; background-color:#140a3d; color: white;width:300px;height:110px;padding:5px;padding-bottom: 15px;border-radius: 3%;font-family:'Pragati Narrow', sans-serif;
-  overflow-x: none;
-}
-
-
-.channel:hover {
-    transform: scale(1.05);
-      border: 1px solid white;
-      cursor: pointer;
-}
-
-p{
-    margin: 0;
-    padding: 0;
-}
-.truncated-text {
+    /* margin-top: 100px; */
+  }
+  
+  #live {
+    /* margin-bottom: 130px; */
+    margin-left:10px;
+  }
+  
+  .upcoming {
+    margin-top: 8vh;
+    margin-left:10px;
+  }
+  
+  #live-fixtures-container {
+    display: flex;
+    flex-direction: row; /* Add this line */
+    gap: 10px;
+    width: 100%;
+    /* height:230px;
+    position: relative; 
+    overflow-x: auto;
+    overflow-y:none;
+    -webkit-overflow-scrolling: touch; */ 
+    /* margin-bottom: 120px; */
+  }
+  
+  .item {
+    width: 200px;
+  }
+  
+  .team-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    row-gap: 100px;
+    
+  }
+  
+  
+  .team-container.home-team img {
+    width: 50px; /* Adjust the width to your desired size */
+    height: auto; /* Maintain the aspect ratio */
+    margin-right: 5.5em;
+  }
+  
+  .team-container.away-team img {
+    width: 50px; /* Adjust the width to your desired size */
+    height: auto; /* Maintain the aspect ratio */
+    margin-left: 5.5em; 
     position: relative;
-    width: 235px;
-  } 
-
-  .truncated-content {
-  }
-
-
-
-  .truncated-content,
-  .full-content {
-    font-size: 10px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  .full-content {
-    display: none;
-  }
-  .truncated-text:hover .full-content {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 5px;
-    border-radius: 4px;
-    z-index: 1;
-  }
-
-  .title {
-    max-height: 50px;
-    max-width: 235px;
-    display: inline-block;
-    width: 235px;
-    height: auto;
-    font-size: 15px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* white-space: nowrap; */
+    bottom: 50px; 
   }
   
   
-.leftSide {}
-
-.rightSide {
-    width:300px;
-}
-
-.title-row {
-  margin-bottom: 10px;border: 1px solid #472C82;border-radius: 8%;width:fit-content
-}
-
-.information-row {}
-
-.titleAndDesc {}
-
-.time {
-  margin-top: 10px;font-size: 13px;background-color: #472C82;
-}
-
-.progress {
-  background-color: #472C82; height:5px;
-}
-
-.progress-completed,.progress-completed2,.progress-completed3,.progress-completed4 {
-    background-color: pink; 
-    height:5px;
-}
-
-
-/* api football style  */
-
-.data-container {
-  color: white;
-  width: auto;
-  height: 60px;
-  background-color: #140a3d;
-  padding: 25px;
-  border-radius: 2%;
-  position: relative;
-}
-
-.data-container:hover {
-  /* background-color: blue; */
-  transform: scale(1.1);
-  border: 1px solid white;
-  cursor: pointer;
-}
-
-.live-data-container {
-  border: 1px solid red;
-  color: white;
-  width: auto;
-  height: 60px;
-  background-color: #140a3d;
-  padding: 25px;
-  border-radius: 2%;
-  position: relative;
-}
-
-.live-data-container:hover {
-  /* background-color: blue; */
-  transform: scale(1.1);
-  border: 1px solid white;
-  cursor: pointer;
-}
-
-#fixtures-container {
-  display: flex;
-  flex-direction: row; /* Add this line */
-  gap: 10px;
-  width: 100%;
-  height:230px;
-  position: relative; 
-  overflow-x: auto;
-  overflow-y:none;
-  -webkit-overflow-scrolling: touch;
-  /* margin-top: 100px; */
-}
-
-#live {
-  /* margin-bottom: 130px; */
-  margin-left:10px;
-}
-
-.upcoming {
-  margin-top: 8vh;
-  margin-left:10px;
-}
-
-#live-fixtures-container {
-  display: flex;
-  flex-direction: row; /* Add this line */
-  gap: 10px;
-  width: 100%;
-  /* height:230px;
-  position: relative; 
-  overflow-x: auto;
-  overflow-y:none;
-  -webkit-overflow-scrolling: touch; */ 
-  /* margin-bottom: 120px; */
-}
-
-.item {
-  width: 200px;
-}
-
-.team-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  row-gap: 100px;
+  .game-title {
+      font-family: 'Alatsi', sans-serif;
+      font-size: 15px;
+      display: inline;
+      position:relative;
+      right:20px;
+      /* white-space: nowrap; */
+      
   
-}
-
-
-.team-container.home-team img {
-  width: 50px; /* Adjust the width to your desired size */
-  height: auto; /* Maintain the aspect ratio */
-  margin-right: 5.5em;
-}
-
-.team-container.away-team img {
-  width: 50px; /* Adjust the width to your desired size */
-  height: auto; /* Maintain the aspect ratio */
-  margin-left: 5.5em; 
-  position: relative;
-  bottom: 50px; 
-}
-
-
-.game-title {
-    font-family: 'Alatsi', sans-serif;
-    font-size: 15px;
-    display: inline;
+  }
+  
+  .game-description {
+    font-size: 12px; /* Adjust the font size to your desired size */
     position:relative;
     right:20px;
-    /* white-space: nowrap; */
-    
-
-}
-
-.game-description {
-  font-size: 12px; /* Adjust the font size to your desired size */
-  position:relative;
-  right:20px;
- } 
-
- #LiveH1 {
-  color: white;
-  /* font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
-  font-size: 22px;
- }
-
- #LiveH2 {
+   } 
+  
+   #LiveH1 {
     color: white;
     /* font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
     font-size: 22px;
-    margin-bottom: 2vh;
-    margin-left:5px;
    }
-
- .liveIMG {
-  position:absolute;
-  width:30px;
-  height:30px;
-  top:0;
-  left:0;
- }
-
- .header {
-  display: flex;
-  position:fixed;
-  color: white;
-  /* font-family:"Helvetica Neue", helvetica, arial, sans-serif; */
-  top:0;
-  background-color: #140a3d;
-  width:100%;
-  height:3.5em;
-  z-index: 1;
-  flex-direction: row; /* Add this line */
-  gap: 25px;
-  justify-content: left;
-  align-items: center;
-  padding-left: 10px;
- }
-
-
- .headerIMG {
-    /* height:3300px;
-    width:400px; */
-  /* display:none; */
-  margin-top:3.5em;
-  opacity: 100%;
- }
-
- .desktop {
-    display: none;
- }
-
- .game-minute {
-  position: absolute;
-  /* right:90px;  */
-  font-size: 19px;
-  color: red;
-  margin-left: 10px;
-  margin-right: 10px;
- }
-
-}
-
-
+  
+   #LiveH2 {
+      color: white;
+      /* font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+      font-size: 22px;
+      margin-bottom: 2vh;
+      margin-left:5px;
+     }
+  
+   .liveIMG {
+    position:absolute;
+    width:30px;
+    height:30px;
+    top:0;
+    left:0;
+   }
+  
+   .header {
+    display: flex;
+    position:fixed;
+    color: white;
+    /* font-family:"Helvetica Neue", helvetica, arial, sans-serif; */
+    bottom:0;
+    background-color: #140a3d;
+    width:100%;
+    height:3.5em;
+    z-index: 1;
+    flex-direction: row; /* Add this line */
+    gap: 25px;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10px;
+   }
+  
+  
+   .headerIMG {
+      /* height:3300px;
+      width:400px; */
+    /*display:none; 
+    /* margin-top:3.5em; */
+    opacity: 80%;
+   }
+  
+   .desktop {
+      display: none;
+   }
+  
+   .game-minute {
+    position: absolute;
+    /* right:90px;  */
+    font-size: 19px;
+    color: red;
+    margin-left: 10px;
+    margin-right: 10px;
+   }
+  
+  }
+  
+  
+  

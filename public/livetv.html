@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Match Highlights</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="mediaquery.css">
+  <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#603cba">
+    <meta name="theme-color" content="#ffffff">
+  <style>
+    body {
+      background-color: #090229;
+      font-family: 'Alatsi', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    .channel-list {
+      background-color: #140a3d;
+      width: 20%;
+      height: 100vh; /* Use full viewport height */
+      overflow-y: auto; /* Add scrollbar if necessary */
+    }
+
+    .channel-list ul {
+      padding: 10px;
+      font-size: 15px;
+      
+    }
+
+    .channel-list ul li {
+      padding: 10px;
+      
+    }
+    
+
+    .channel-list ul :hover {
+      border: 1px solid blue;
+    }
+
+    .channel-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.channel-list::-webkit-scrollbar-track {
+  background: grey;
+}
+
+.channel-list::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 5px;
+}
+
+.channel-list::-webkit-scrollbar-thumb:hover {
+  background: rgb(119, 119, 143);
+}
+
+    .channel-list-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 0px;
+      padding:10px;
+    }
+
+   
+
+    #video-container {
+      display: flex;
+      align-items: stretch;
+      height: 75vh; 
+      overflow: hidden; /* Hide horizontal overflow */
+      margin-top: 100px;
+      margin-left:30px;
+    }
+
+    #my-video {
+      width: 60%; /* Adjust width as needed */
+      height:100%;
+    }
+
+   
+
+    .vjs-control-bar {
+      background-color: transparent !important;
+    }
+
+    .list {
+      padding:10px;
+    }
+
+    @media only screen and  (max-device-width: 767px) {
+      #video-container {
+        flex-direction: column;
+        margin-top: 75px;
+      }
+
+      .channel-list {
+      background-color: #140a3d;
+      width: 90%;
+      height: 100vh; /* Use full viewport height */
+      overflow-y: auto; /* Add scrollbar if necessary */
+    }
+
+    #my-video {
+      width: 90%; /* Adjust width as needed */
+    }}
+
+    
+  </style>
+</head>
+
+<body>
+  <div class="header">
+        <img src="/images/phantomtvlogo.png" width="50" height="50">
+        <a href="/" style="text-decoration:none;color: inherit;font-size: 16px;border: 5cm white;"><div class="home"> <bold>HOME</bold> </div></a>
+        <a href="highlights.html" style="text-decoration:none;color: inherit;font-size: 16px;"><div class="live-tv"> <bold>HIGHLIGHTS</bold> </div></a>
+        <a href="livetv.html" style="text-decoration:none;color: inherit;font-size: 16px;"><div class="live-tv"> <bold>LIVE TV</bold> </div></a>
+     </div>
+  <div id="video-container">
+    <video
+            id="my-video"
+            class="video-js "
+            controls autoplay 
+            preload="auto"
+            data-setup="{}"
+        >
+            <source src="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/793874.m3u8" type="application/x-mpegURL" />
+            <!-- <source src="MY_VIDEO.webm" type="video/webm" /> -->
+        </video>
+
+    <div class="channel-list" >
+      <ul style="list-style: none;"id="channel-list">
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/793874.m3u8">Sky Sports Premier League</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300247.m3u8">TNT Sports 1</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300260.m3u8">TNT Sports 2</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300468.m3u8">TNT Sports 3</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1474391.m3u8">Hub Premier 1</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1474392.m3u8">Hub Premier 2</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1474393.m3u8">Hub Premier 3</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/795019.m3u8">Optus Sport 1</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/795020.m3u8">Optus Sport 2</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/795021.m3u8">Optus Sport 3</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/795022.m3u8">Optus Sport 4</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1490059.m3u8">Bein Sports 1 EN</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1490060.m3u8">Bein Sports 2 EN</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/437268.m3u8">Sky Sports Football</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/793873.m3u8">Sky Sports Main Event </li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/886597.m3u8">Now Sports Premier 1</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/886596.m3u8">Now Sports Premier 2</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/886595.m3u8">Now Sports Premier 3</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300847.m3u8">ViaPlay Sports 1</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300106.m3u8">ViaPlay Sports 2</li>
+        <li class="live-channel" data-stream="http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1922647.m3u8">LaLigaTV</li>
+        
+        
+        <!-- Add more channel-list-row items as needed -->
+      </ul>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
+
+
+
+<script>
+
+var player = videojs('my-video');
+// select all channel items
+const channelItems = document.querySelectorAll('.live-channel');
+
+// add click event listener to each channel item
+channelItems.forEach(channelItem => {
+    channelItem.addEventListener('click', () => {
+        // get the stream URL from the data-stream attribute
+        const streamUrl = channelItem.getAttribute('data-stream');
+
+        // check if streamUrl is not empty
+        if (streamUrl) {
+            // set the player source to the selected channel's stream URL
+            player.src({src: streamUrl, type: 'application/x-mpegURL'});
+            player.play(); // Attempt to play the new source
+        } else {
+            console.error('Stream URL is empty for this channel.');
+        }
+    });
+});
+    
+
+</script>
+</body>
+
+</html>

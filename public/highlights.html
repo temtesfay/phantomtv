@@ -92,14 +92,36 @@
     .list {
       padding:10px;
     }
+
+
+
+    @media only screen and  (max-device-width: 767px) {
+      #video-container {
+        flex-direction: column;
+        margin-top: 75px;
+      }
+
+      .channel-list {
+      background-color: #140a3d;
+      width: 90%;
+      height: 100vh; /* Use full viewport height */
+      overflow-y: auto; /* Add scrollbar if necessary */
+    }
+
+    #player {
+      width: 90%; /* Adjust width as needed */
+    }
+
+    }
   </style>
 </head>
 
 <body>
   <div class="header">
-        <img src="/images/phantomtvlogo.png" width="50" height="50">
-        <a href="/" style="text-decoration:none;color: inherit;font-size: 16px;border: 5cm white;"><div class="home"> <bold>HOME</bold> </div></a>
+        <img src="images/phantomtvlogo.png" width="50" height="50">
+        <a href="/public/" style="text-decoration:none;color: inherit;font-size: 16px;border: 5cm white;"><div class="home"> <bold>HOME</bold> </div></a>
         <a href="highlights.html" style="text-decoration:none;color: inherit;font-size: 16px;"><div class="live-tv"> <bold>HIGHLIGHTS</bold> </div></a>
+        <a href="livetv.html" style="text-decoration:none;color: inherit;font-size: 16px;"><div class="live-tv"> <bold>LIVE TV</bold> </div></a>
      </div>
   <div id="video-container">
     <iframe class="iframe" id="player" src='' frameborder='0' allowfullscreen allow='autoplay; fullscreen' style=''></iframe>
