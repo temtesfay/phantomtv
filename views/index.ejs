@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="mediaquery.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#603cba">
@@ -29,15 +29,17 @@
         <img src="/images/header-mobile.png" style="opacity: 100%;" width="100%" height="5%">
       </div>
     </div>
-    <div id="live">
+    <div id="live" style>
       <h1 id="LiveH1"></h1>
       <div id="live-fixtures-container"></div>
    </div>
     
       <h1 id="LiveH2">Live Channels</h1>
       <div class="horizontal-scroll">
-        <button class="LeftScroll" id="LeftScroll" onclick="scrollHorizontally2(1)"><img src="/images/Left-Arrow.png" width="25" height="30" style="position: relative;bottom:5px;right: 4px;"></button>
-        <button class="RightScroll" id="RightScroll" onclick="scrollHorizontally2(-1)"><img src="/images/Right-Arrow.png" width="25" height="30" style="position: relative;bottom:5px;right: 0px;"></button>
+        <div class="button-scroll">
+          <button class="LeftScroll" id="LeftScroll" onclick="scrollHorizontally2(1)"><img src="/images/Left-Arrow.png" width="25" height="30" style="position: relative;bottom:5px;right: 4px;"></button>
+          <button class="RightScroll" id="RightScroll" onclick="scrollHorizontally2(-1)"><img src="/images/Right-Arrow.png" width="25" height="30" style="position: relative;bottom:5px;right: 0px;"></button>
+        </div>
         <div id='live-channels-container' class="live-channels-container">    
             <a href='bt-sport1.html'><div id="tnt-sport1" class="channel" >
                 <div class='leftSide' style="display:flex;flex-direction: column;margin-right: 5px; " >
@@ -518,7 +520,7 @@
             // LiveH1.classList.add('LiveH1');
             LiveH1.innerHTML = 'Currently Playing'
             // LiveFixtureContainer.appendChild(LiveH1);
-            $("#live").css("margin-bottom", "130px");
+            $("#live").css("margin-bottom", "100px");
 
             const gameMinute = document.createElement('h1');
             gameMinute.classList.add('game-minute');

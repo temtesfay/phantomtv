@@ -68,8 +68,6 @@ const apiData = data.data[channel];
 const currentTimestamp = Math.floor(Date.now() / 1000);
 
 
-
-
 // Find the currently live program
 const liveProgram = apiData.find(program => {
   return program.start_utc <= currentTimestamp && currentTimestamp <= program.stop_utc;
@@ -127,13 +125,13 @@ const progress = (elapsedTime / duration) * 100;
   // console.log(programTitle)
   return { title: programTitle + ': ' + programSubTitle , description: programDescription, time:timeRange, progress: progress };
 
-console.log("Currently Live Program:");
-console.log("Title:", programTitle);
-console.log("Sub-Title:", programSubTitle);
-console.log("Description:", programDescription);
-console.log("Time:", timeRange);
+// console.log("Currently Live Program:");
+// console.log("Title:", programTitle);
+// console.log("Sub-Title:", programSubTitle);
+// console.log("Description:", programDescription);
+// console.log("Time:", timeRange);
 } else {
-console.log("No live program is currently airing.");
+// console.log("No live program is currently airing.");
 return { title:'No live program is currently airing.' , description: '', time:'', progress: 0 };
    
 }
@@ -285,6 +283,7 @@ const formattedDate = `${year}-${month}-${day}`;
 console.log(formattedDate)
 
 app.get('/api/programmes', async (req, res) => {
+  console.log(formattedDate)
   try {
     const response = await fetch(`https://epg.best/api/programmes?date=${formattedDate}&channels[]=TNTSport1.uk&channels[]=TNTSport2.uk&channels[]=TNTSport3.uk&channels[]=beINSports1En.qa&channels[]=beINSports2En.qa&channels[]=SkySportsPremiereLeague.uk&channels[]=SkySportsMainEvent.uk&channels[]=SkySportsFootball.uk&channels[]=SkySportsNews.uk&channels[]=ViaplaySports1.uk&channels[]=ViaplaySports2.uk`, {
       headers: {

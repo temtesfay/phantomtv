@@ -35,7 +35,14 @@ body::-webkit-scrollbar-thumb:hover {
   width:300px;height:40px;
   margin-left: 5px;
   margin-bottom: 140px;
-  /* -webkit-overflow-scrolling: touch; */
+  -webkit-overflow-scrolling: auto; 
+}
+
+.button-scroll {
+  display:flex;
+  align-items: end;
+  justify-content: end;
+
 }
 
 .LeftScroll {
@@ -55,8 +62,6 @@ body::-webkit-scrollbar-thumb:hover {
     height:40px;
     width:40px;
     align-self:self-start;
-    position: relative;
-    top: 50px;
 }
 
 .RightScroll {
@@ -70,16 +75,13 @@ body::-webkit-scrollbar-thumb:hover {
     z-index: 2;
     cursor: pointer;
     transition: 1s;
-    position: absolute;
+    position: absolute; 
     right:0;
     /* top:120px; */
     height:40px;
     width:40px;
     align-self: self-start;
-
 }
-
-
 
 
 .live-channels-container {
@@ -94,6 +96,7 @@ body::-webkit-scrollbar-thumb:hover {
     margin-top:90px;
     /* margin-bottom:120px; */ 
     /* z-index: 1; */
+    -webkit-overflow-scrolling: auto; 
 }
 
 .channel {
@@ -234,7 +237,6 @@ p{
 }
 
 #live {
-  /* margin-bottom: 130px; */
   margin-left:10px;
 }
 
