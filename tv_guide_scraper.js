@@ -48,7 +48,7 @@ function getRandomUserAgent() {
   
   // Replace this with the URL of the API you want to fetch data from
 async function fetchData(channel,channelID) {
-const url = `http://localhost/api/programmes`;
+const url = `https://phantomtv.up.railway.app/api/programmes`;
 const options = {
 method: 'GET',
 headers: {
@@ -280,7 +280,7 @@ const year = currentDate.slice(6,10)
 
 // Create the formatted date string
 const formattedDate = `${year}-${month}-${day}`;
-console.log(formattedDate)
+// console.log(formattedDate)
 
 app.get('/api/programmes', async (req, res) => {
   console.log(formattedDate)
