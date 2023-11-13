@@ -48,7 +48,7 @@ function getRandomUserAgent() {
   
   // Replace this with the URL of the API you want to fetch data from
 async function fetchData(channel,channelID) {
-const url = `https://phantomtv.up.railway.app/api/programmes`;
+const url = `http://localhost/api/programmes`;
 const options = {
 method: 'GET',
 headers: {
@@ -60,9 +60,10 @@ const response = await fetch(url, options);
 const data = await response.json();
 const fixtures = data.response;
 // console.log(response.status);
-// console.log(data.data[channel]);
+console.log(data.data[channel]);
 
 const apiData = data.data[channel];
+
 
 // // Get the current timestamp (in seconds since Unix epoch)
 const currentTimestamp = Math.floor(Date.now() / 1000);
@@ -125,11 +126,11 @@ const progress = (elapsedTime / duration) * 100;
   // console.log(programTitle)
   return { title: programTitle + ': ' + programSubTitle , description: programDescription, time:timeRange, progress: progress };
 
-// console.log("Currently Live Program:");
-// console.log("Title:", programTitle);
-// console.log("Sub-Title:", programSubTitle);
-// console.log("Description:", programDescription);
-// console.log("Time:", timeRange);
+console.log("Currently Live Program:");
+console.log("Title:", programTitle);
+console.log("Sub-Title:", programSubTitle);
+console.log("Description:", programDescription);
+console.log("Time:", timeRange);
 } else {
 // console.log("No live program is currently airing.");
 return { title:'No live program is currently airing.' , description: '', time:'', progress: 0 };
