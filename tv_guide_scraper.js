@@ -269,7 +269,9 @@ const bearerToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIj
 // ViaplaySports2.uk
 
 
-// Set the time zone to UK time (GMT/UTC)
+
+app.get('/api/programmes', async (req, res) => {
+  // Set the time zone to UK time (GMT/UTC)
 const options = { timeZone: 'Europe/London' };
 const currentDate = new Date().toLocaleString('en-GB', options);
 // console.log(currentDate)
@@ -282,9 +284,6 @@ const year = currentDate.slice(6,10)
 // Create the formatted date string
 const formattedDate = `${year}-${month}-${day}`;
 // console.log(formattedDate)
-
-app.get('/api/programmes', async (req, res) => {
-  console.log(formattedDate)
   try {
     const response = await fetch(`https://epg.best/api/programmes?date=${formattedDate}&channels[]=TNTSport1.uk&channels[]=TNTSport2.uk&channels[]=TNTSport3.uk&channels[]=beINSports1En.qa&channels[]=beINSports2En.qa&channels[]=SkySportsPremiereLeague.uk&channels[]=SkySportsMainEvent.uk&channels[]=SkySportsFootball.uk&channels[]=SkySportsNews.uk&channels[]=ViaplaySports1.uk&channels[]=ViaplaySports2.uk`, {
       headers: {
