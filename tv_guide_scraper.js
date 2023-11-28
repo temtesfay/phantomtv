@@ -144,12 +144,6 @@ console.error(error);
 }
 
 
-
-
-
-
-
-
 // fetchData('SkySportsPremiereLeague.uk');
 fetchData('TNTSport1.uk','tnt-sport1');
 fetchData('TNTSport2.uk','tnt-sport2');

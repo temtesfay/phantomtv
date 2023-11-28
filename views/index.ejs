@@ -560,6 +560,186 @@
   fetchData();
 </script>
 
+<!--api basketball-->
+<script>
+  function convertTo12HourFormat(time) {
+    const [hours, minutes] = time.split(':').map(Number);
+    const period = hours >= 12 ? 'pm' : 'am';
+    const formattedHours = ((hours + 11) % 12 + 1).toString();
+    const formattedMinutes = minutes.toString().padStart(2, '0');
+    return `${formattedHours}:${formattedMinutes} ${period}`;
+}
+  function formatDate(dateString) {
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    const year = dateString.slice(0, 4);
+    const month = parseInt(dateString.slice(5, 7), 10);
+    const day = dateString.slice(8, 10);
+    const time = convertTo12HourFormat(dateString.slice(11,17))
+
+    const formattedDate = `${monthNames[month - 1]} ${day}, ${year} at ${time}.`;
+    return formattedDate;
+  }
+ 
+  function redirectToHomePage(homeTeamPng) {
+      // Construct the URL based on the home team ID and redirect to the page
+      const url = `epl/${homeTeamPng}.html`;
+      window.location.href = url;
+}
+
+  async function fetchData() {
+    const specificDate = '2023-12-19'; // Change this to the specific date you want
+    const currentDate = new Date();
+    const mdtTimeZone = 'America/Denver';
+    const mdtOptions = { timeZone: mdtTimeZone, year: 'numeric', month: '2-digit', day: '2-digit' };
+
+    const formattedDateParts = currentDate.toLocaleDateString('en-US', mdtOptions).split('/');
+    const year = formattedDateParts[2];
+    const month = formattedDateParts[0].padStart(2, '0');
+    const day = formattedDateParts[1].padStart(2, '0');
+
+    const formattedDate = `${year}-${month}-${day}`;
+    const url = `https://api-basketball.p.rapidapi.com/games?league=12&season=2023&from=${formattedDate}&to=${specificDate}&timezone=America%2FEdmonton`;
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': '46ae53ee2fmsha23a061eb2aa0f4p1d95f5jsne40c433c9756',
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+      }
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+      const fixtures = data.response;
+
+      // Update the HTML with the API data
+      const container = document.getElementById('fixtures-container');
+      const liveContainer = document.getElementById('live-fixtures-container');
+
+      fixtures.forEach(fixture => {
+        const homeTeam = fixture.teams.home.name;
+        const homeTeamPng = fixture.teams.home.id;
+
+        const awayTeam = fixture.teams.away.name;
+        const awayTeamPng = fixture.teams.away.id;
+
+        const datePlayed = fixture.fixture.date; //-> "2023-07-23T20:00:00-06:00"
+        const datePlayedFormatted = formatDate(datePlayed);
+        console
+
+        const description = homeTeam + '  vs  ' + awayTeam; // Update with the actual description
+        const timeAndPlace = datePlayedFormatted; // Update with the actual time and place
+
+        const currentDate = new Date();
+        const liveTimeStamp = currentDate.getTime();
+
+        const gameTimeStamp = fixture.fixture.timestamp * 1000;
+        const secondHalfStamp = fixture.fixture.periods.second;
+
+        const gameInProgress = fixture.fixture.status.long;
+        const currentMin = fixture.fixture.status.elapsed;
+        const liveGameBoolean = ["First Half","Kick Off","Halftime","Second Half","2nd Half Started","Extra Time","Break Time","Penalty In Progress","Match Interrupted","In Progress"]
+        
+
+  
+        // Create a fixture container div
+        const fixtureContainer = document.createElement('div');
+        fixtureContainer.classList.add('data-container');
+        fixtureContainer.setAttribute("id","data-container")
+        
+
+        // Create a team container for the home team
+        const homeTeamContainer = document.createElement('div');
+        homeTeamContainer.classList.add('team-container', 'home-team');
+        const imgElementHome = document.createElement('img');
+        imgElementHome.src = "https://media.api-sports.io/football/teams/" + homeTeamPng + ".png";
+        homeTeamContainer.appendChild(imgElementHome);
+        
+
+
+        // Create a team container for the away team
+        const awayTeamContainer = document.createElement('div');
+        awayTeamContainer.classList.add('team-container', 'away-team');
+        const imgElementAway = document.createElement('img');
+        imgElementAway.src = "https://media.api-sports.io/football/teams/" + awayTeamPng + ".png";
+        awayTeamContainer.appendChild(imgElementAway);
+
+   
+        // Create a paragraph element for the game description
+        const gameTitle = document.createElement('h1');
+        gameTitle.classList.add('game-title');
+        gameTitle.innerHTML = description;
+
+        const gameDescription = document.createElement('p');
+        gameDescription.classList.add('game-description');
+        gameDescription.innerHTML = timeAndPlace;
+
+
+     
+        fixtureContainer.appendChild(homeTeamContainer);
+        fixtureContainer.appendChild(awayTeamContainer);
+        fixtureContainer.appendChild(gameTitle);
+        fixtureContainer.appendChild(gameDescription);
+        
+
+        //Append the fixture container to the main container
+        container.appendChild(fixtureContainer);
+        fixtureContainer.addEventListener('click', function () {
+        redirectToHomePage(homeTeamPng);
+            });
+
+        const LiveFixtureContainer = document.createElement('div');
+        LiveFixtureContainer.classList.add('live-data-container');
+
+        if (liveGameBoolean.includes(gameInProgress) == true) {
+            const LiveH1 = document.getElementById('LiveH1');
+            // LiveH1.classList.add('LiveH1');
+            LiveH1.innerHTML = 'Currently Playing'
+            // LiveFixtureContainer.appendChild(LiveH1);
+            $("#live").css("margin-bottom", "100px");
+
+            const gameMinute = document.createElement('h1');
+            gameMinute.classList.add('game-minute');
+            gameMinute.innerHTML = currentMin + "'";
+
+
+             const liveIMG = document.createElement('img');
+             liveIMG.classList.add('liveIMG');
+             liveIMG.src = "images/live.png";
+             LiveFixtureContainer.appendChild(liveIMG);
+
+             homeTeamContainer.appendChild(gameMinute);
+           
+            //  LiveFixtureContainer.appendChild(gameMinute);
+
+
+            
+            LiveFixtureContainer.appendChild(homeTeamContainer);
+            LiveFixtureContainer.appendChild(awayTeamContainer);
+            LiveFixtureContainer.appendChild(gameTitle);
+            LiveFixtureContainer.appendChild(gameDescription);
+            container.removeChild(fixtureContainer)
+            liveContainer.appendChild(LiveFixtureContainer);
+            LiveFixtureContainer.addEventListener('click', function () {
+             redirectToHomePage(homeTeamPng);
+            });
+       }
+      });
+
+      
+
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  fetchData();
+</script>
+
 <!--hover settings-->
 <script>
  $(document).ready(function() {
