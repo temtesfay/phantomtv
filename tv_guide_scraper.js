@@ -12,7 +12,7 @@ const port = 80;
 
 // Proxy route for HLS stream
 app.use('/proxy', createProxyMiddleware({
-  target: 'http://ptv.lol',
+  target: 'https://ptv.lol',
   changeOrigin: true,
   pathRewrite: {
       '^/proxy': '', // Remove the /proxy prefix
