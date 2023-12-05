@@ -4,32 +4,15 @@
     <title>Programmes</title>
 </head>
 <body>
-    <h1>Programmes</h1>
-    
-    <div id="programmes"></div>
-    <script>
-        // Make a request to your server's API endpoint
-        fetch('/api/programmes')
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                // Process and display the data
-                const programmesDiv = document.getElementById('programmes');
-                data['TNTSport1.uk'].forEach(program => {
-                    // Render program details here
-                    const programElement = document.createElement('div');
-                    programElement.innerHTML = `
-                        <h2>Title: ${program.title}</h2>
-                        <p>Subtitle: ${program['sub-title']}</p>
-                        <p>Description: ${program.desc}</p>
-                        <p>Start UTC: ${program.start_utc}</p>
-                        <p>Stop UTC: ${program.stop_utc}</p>
-                        <hr>
-                    `;
-                    programmesDiv.appendChild(programElement);
-                });
-            })
-            .catch(error => console.error('An error occurred:', error));
-    </script>
+    <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+  data-setup='{"techOrder": ["html5", "flash"], "sources": [{"type": "application/x-mpegURL", "src": "/proxy/DzaghmcuFJ/Crhv7qkZ5/437264.m3u8"}]}'>
+  <source src="https://phantomtv.net/proxy/DzaghmcuFJ/Crhv7qkZ5/437264.m3u8" type="application/x-mpegURL">
+  <!-- Fallback Flash player for non-HTML5 browsers without Flash installed -->
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a web browser that
+    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+  </p>
+</video>
+
 </body>
 </html>

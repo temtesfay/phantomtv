@@ -3,21 +3,22 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const path = require('path');
 const { HttpsProxyAgent } = require('https-proxy-agent');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 const fetch = require('node-fetch');
-
-
-
-const fs = require('fs');
-const xml2js = require('xml2js');
-const cors = require('cors');
-const { title } = require('process');
 
 
 const app = express();
 const port = 80;
 
-const url = 'https://tv-guide-listings.co.uk/';
-const proxyUrl = "http://qxeslhzw-rotate:gcikoi18z3qy@p.webshare.io:80/";
+// Proxy route for HLS stream
+app.use('/proxy', createProxyMiddleware({
+  target: 'http://ptv.lol',
+  changeOrigin: true,
+  pathRewrite: {
+      '^/proxy': '', // Remove the /proxy prefix
+  },
+  secure: false, // Disable SSL verification (use with caution)
+}));
 
 
 const userAgents = [
@@ -42,10 +43,6 @@ function getRandomUserAgent() {
   return userAgents[randomIndex];
 }
 
-
-
-
-  
   // Replace this with the URL of the API you want to fetch data from
 async function fetchData(channel,channelID) {
 const url = `https://phantomtv.onrender.com/api/programmes`;
@@ -216,11 +213,6 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 
-// const corsOptions = {
-//   origin: 'https://squid-app-x6hio.ondigitalocean.app',
-// };
-
-// app.use(cors(origin));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
