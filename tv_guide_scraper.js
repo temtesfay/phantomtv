@@ -57,7 +57,7 @@ const response = await fetch(url, options);
 const data = await response.json();
 const fixtures = data.response;
 // console.log(response.status);
-console.log(data.data[channel]);
+// console.log(data.data[channel]);
 
 const apiData = data.data[channel];
 
