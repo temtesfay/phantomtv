@@ -17,7 +17,7 @@ app.use('/proxy', createProxyMiddleware({
   pathRewrite: {
       '^/proxy': '', // Remove the /proxy prefix
   },
-  // secure: false, // Disable SSL verification (use with caution)
+  secure: false, // Disable SSL verification (use with caution)
 }));
 
 
