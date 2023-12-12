@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Match Highlights</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/mediaquery.css">
+  <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#603cba">
+    <meta name="theme-color" content="#ffffff">
+  <style>
+    body {
+      background-color: #090229;
+      font-family: 'Alatsi', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    .channel-list {
+      background-color: #140a3d;
+      width: 20%;
+      height: 100vh; /* Use full viewport height */
+      overflow-y: auto; /* Add scrollbar if necessary */
+    }
+
+    .channel-list ul {
+      padding: 0;
+      font-size: 10px;
+      
+    }
+
+    .channel-list ul :hover {
+      border: 1px solid blue;
+    }
+
+    .channel-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.channel-list::-webkit-scrollbar-track {
+  background: grey;
+}
+
+.channel-list::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 5px;
+}
+
+.channel-list::-webkit-scrollbar-thumb:hover {
+  background: rgb(119, 119, 143);
+}
+
+    .channel-list-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+      margin-bottom: 0px;
+      padding:10px;
+    }
+
+   
+
+    #video-container {
+      display: flex;
+      align-items: stretch;
+      height: 75vh; /* Use full viewport height */
+      overflow: hidden; /* Hide horizontal overflow */
+      margin-top: 100px;
+      margin-left:30px;
+    }
+
+    #player {
+      width: 70%; /* Adjust width as needed */
+    }
+
+    .iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    .vjs-control-bar {
+      background-color: transparent !important;
+    }
+
+    .list {
+      padding:10px;
+    }
+
+
+
+    @media only screen and  (max-device-width: 767px) {
+      #video-container {
+        flex-direction: column;
+        margin-top: 75px;
+      }
+
+      .channel-list {
+      background-color: #140a3d;
+      width: 90%;
+      height: 100vh; /* Use full viewport height */
+      overflow-y: auto; /* Add scrollbar if necessary */
+    }
+
+    #player {
+      width: 90%; /* Adjust width as needed */
+    }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+        <img src="/images/phantomtvlogo.png" width="50" height="50">
+        <a href="/tem" style="text-decoration:none;color: inherit;font-size: 16px;border: 5cm white;"><div class="home"> <bold>HOME</bold> </div></a>
+        <a href="/T/highlights.html" style="text-decoration:none;color: inherit;font-size: 16px;"><div class="live-tv"> <bold>HIGHLIGHTS</bold> </div></a>
+        <a href="/T/livetv.html" style="text-decoration:none;color: inherit;font-size: 16px;"><div class="live-tv"> <bold>LIVE TV</bold> </div></a>
+     </div>
+  <div id="video-container">
+    <iframe class="iframe" id="player" src='' frameborder='0' allowfullscreen allow='autoplay; fullscreen' style=''></iframe>
+
+    <div class="channel-list" >
+      <ul style="list-style: none;"id="channel-list">
+        
+        <!-- Add more channel-list-row items as needed -->
+      </ul>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
+
+  <script>
+    var player = videojs('my-video');
+
+    
+
+    
+  </script>
+
+<script>
+
+  const allowedLeagues = ['USA: Major League Soccer','ENGLAND: Premier League','SPAIN: La Liga','ITALY: Serie A','FRANCE: Ligue 1','GERMANY: Bundesliga','CHAMPIONS LEAGUE: Group stage, Group A','CHAMPIONS LEAGUE: Group stage, Group B','CHAMPIONS LEAGUE: Group stage, Group C','CHAMPIONS LEAGUE: Group stage, Group D','CHAMPIONS LEAGUE: Group stage, Group E','CHAMPIONS LEAGUE: Group stage, Group F','CHAMPIONS LEAGUE: Group stage, Group G','CHAMPIONS LEAGUE: Group stage, Group H'];
+  var isFirstVideo = true; // Flag to track if it's the first video
+  async function HighlightsApi() {
+      const response = await fetch("https://www.scorebat.com/video-api/v3/feed/?token=MTE0ODcyXzE2OTQzMTg2MDFfMzk3NWMyNjlhODhlNmVhYTg0ODUyOTFmZDFmMzMyZTM1ZTc3OWJlZA==");
+      const data = await response.json();
+      const fixtures = data.response;
+      // console.log(fixtures);
+      fixtures.forEach(fixture => { 
+          competition = fixture.competition;
+          comp_list = competition.split(':');
+          comp = comp_list[1];
+          
+          title = fixture.title;
+          videoLinkSRC = fixture.videos[0].embed;
+          var startIndex = videoLinkSRC.indexOf("src='") + 5; // Add 5 to skip the length of "src='"
+          var endIndex = videoLinkSRC.indexOf("'", startIndex);
+
+          // Extract the src attribute value using string slicing
+          var srcAttributeValue = videoLinkSRC.slice(startIndex, endIndex);
+
+          
+
+          // Log the src attribute value
+         
+
+          if (allowedLeagues.includes(competition) == true) {
+                    // Check if it's the first video and set the src attribute of the 'player' element
+              if (isFirstVideo) {
+                  document.getElementById('player').src = srcAttributeValue;
+                  $("li").css("border" ,"1px solid blue");
+                  isFirstVideo = false; // Set the flag to false after changing the first video src
+              }
+              console.log(comp,title,srcAttributeValue) 
+
+              const videoContainer = document.getElementById('channel-list');
+              var Li = document.createElement("li");
+              Li.classList.add('list');
+              Li.innerHTML = comp + ' : ' + title;
+
+
+
+              
+              videoContainer.appendChild(Li);
+              // Li.innerHTML = competition + ' ' + title;
+              // Li.onclick(function(){
+              //   document.getElementById['player'].src = srcAttributeValue;
+              // })
+
+              Li.addEventListener('click', function() {
+              ; // Replace this with the new source URL you want to set
+              document.getElementById('player').src = srcAttributeValue;
+});
+              
+
+
+  //             var ul = document.getElementById("lang");
+  // var li = document.createElement("li");
+  // var text = document.createTextNode("PHP");    
+  // li.appendChild(text);
+  // ul.appendChild(li);
+          }
+
+          
+          
+           
+      })};
+
+
+
+HighlightsApi()
+</script>
+</body>
+
+</html>

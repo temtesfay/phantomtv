@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TNT Sports 1</title>
+    <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#603cba">
+    <meta name="theme-color" content="#ffffff">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+</head>
+
+<body style="background-color: black;">
+    <video
+        id="my-video"
+        class="video-js "
+        controls
+        autoplay
+        preload="auto"
+        data-setup="{}"
+    >
+        <source src="https://phantomtv.net/proxy/zHUKZPkf2P/wZEZ354C6v/300247.m3u8" type="application/x-mpegURL" />
+    </video>
+
+    <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
+    <script>
+        var player = videojs('my-video');
+
+        // Define an array of quality options
+        var qualityOptions = [
+            { label: '720p', src: '720p' }, {label: '360p', src: '360p' }
+            // Add more quality options as needed
+        ];
+
+        // Add a custom button for quality options to the control bar
+        var qualityButton = player.controlBar.addChild('button');
+        qualityButton.addClass('vjs-quality-button vjs-control');
+        qualityButton.el().innerHTML = 'Quality Options';
+
+        // Create a container for quality options
+        var qualityOptionsContainer = document.createElement('div');
+        qualityOptionsContainer.className = 'vjs-quality-options-container';
+
+        // Populate the container with quality options
+        qualityOptions.forEach(function (option) {
+            var optionButton = document.createElement('button');
+            optionButton.innerHTML = option.label;
+
+            optionButton.addEventListener('click', function () {
+                // Change the video source to the selected quality
+                player.src({
+                    src: option.src,
+                    type: 'application/x-mpegURL',
+                });
+
+                // You can also update the poster image if needed
+                player.poster('URL_TO_POSTER_IMAGE');
+
+                // Start playing the video
+                player.play();
+
+                // Hide the options container after selecting an option
+                qualityOptionsContainer.style.display = 'none';
+            });
+
+            qualityOptionsContainer.appendChild(optionButton);
+        });
+
+        // Append the container above the quality button
+        qualityButton.el().parentNode.insertBefore(qualityOptionsContainer, qualityButton.el());
+
+        // Show/hide the container when the quality button or options are hovered
+        var showOptions = function () {
+            qualityOptionsContainer.style.display = 'block';
+        };
+
+        var hideOptions = function () {
+            qualityOptionsContainer.style.display = 'none';
+        };
+
+        qualityButton.on('mouseenter', showOptions);
+        qualityButton.on('mouseleave', hideOptions);
+
+        qualityOptionsContainer.addEventListener('mouseenter', showOptions);
+        qualityOptionsContainer.addEventListener('mouseleave', hideOptions);
+    </script>
+
+    <style>
+        html, body {
+            height: 99%;
+        }
+
+        .video-js {
+            width: 100%;
+            height: 99%;
+        }
+
+        .vjs-control-bar {
+            background-color: transparent !important;
+        }
+
+        .vjs-quality-button {
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .vjs-quality-button:hover {
+            background-color: #2980b9;
+        }
+
+        .vjs-quality-options-container {
+            display: none;
+            position: absolute;
+            top: -40px; /* Adjust the position as needed */
+            right: 0;
+            background-color: #333;
+            padding: 8px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            white-space: nowrap;
+        }
+
+        .vjs-quality-options-container button {
+            color: #fff;
+            cursor: pointer;
+            padding: 8px;
+            margin-right: 8px;
+            background-color: transparent;
+            border: none;
+        }
+
+        .vjs-quality-options-container button:hover {
+            background-color: #555;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Everton Stream</title>
+    <link href="https://vjs.zencdn.net/8.0.4/video-js.css" rel="stylesheet" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <!-- <link rel="stylesheet" href="main.css"> -->
+
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
+    </head>
+
+
+    <body style="background-color: black;">
+        <video
+            id="my-video"
+            class="video-js "
+            controls autoplay 
+            preload="auto"
+            data-setup="{}"
+        >
+            <source src="https://phantomtv.net/proxy/zHUKZPkf2P/wZEZ354C6v/1860610.m3u8" type="application/x-mpegURL" />
+            <!-- <source src="MY_VIDEO.webm" type="video/webm" /> -->
+        </video>
+
+    <script src="https://vjs.zencdn.net/8.0.4/video.min.js"></script>
+    <script>
+        // Initializing the video player
+        var player = videojs('my-video');
+
+        // Add a custom button to the control bar
+        // var myButton = player.controlBar.addChild('button');
+        // myButton.addClass('my-button-class');
+        // myButton.el().innerHTML = 'X';
+
+        // // Add a click event listener to the custom button
+        // myButton.on('click', function() {
+        //     <a href="index.html" class="my-button-class">Back to Home</a>
+        // // Do something when the button is clicked
+        // });
+    </script>
+    </body>
+
+    <style>
+        html, body{
+            height:99%; /* ✔️ Height on the parent will fix this issue. */
+            }
+        .video-js {
+            width: 100%;
+            height:99%; 
+        } 
+         .vjs-control-bar {
+             background-color: transparent !important;
+        }
+
+        /* .my-button-class {
+            font-size: 50px !important;
+            position: relative;
+            bottom: 800px;
+            right: 0px;
+        } */
+    </style>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -5,10 +5,20 @@ const path = require('path');
 const { HttpsProxyAgent } = require('https-proxy-agent');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const fetch = require('node-fetch');
+const bodyParser = require('body-parser');
+
+var email = 'temtesfay1234@gmail.com';
+var password = 'tem123';
+
+var userPass = '';
+var userEmail = '';
+
 
 
 const app = express();
 const port = 80;
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Proxy route for HLS stream
 app.use('/proxy', createProxyMiddleware({
@@ -42,6 +52,7 @@ function getRandomUserAgent() {
   const randomIndex = Math.floor(Math.random() * userAgents.length);
   return userAgents[randomIndex];
 }
+
 
   // Replace this with the URL of the API you want to fetch data from
 async function fetchData(channel,channelID) {
@@ -226,12 +237,26 @@ app.use((req, res, next) => {
 
 
 // ... (other imports and code
-app.get('/', async (req, res) => {
+app.get('/tem', async (req, res) => {
   try {
     const promises = [fetchData('TNTSport1.uk','tnt-sport1'), fetchData('TNTSport2.uk','tnt-sport2'), fetchData('TNTSport3.uk','tnt-sport3'), fetchData('SkySportsPremiereLeague.uk','skysportsepl'), fetchData('ViaplaySports1.uk','premiersports1'),fetchData('ViaplaySports2.uk','premiersports2'),fetchData('SkySportsMainEvent.uk','skysportsmainevent'),fetchData('SkySportsFootball.uk','skysportsfootball'), fetchData('SkySportsNews.uk','skysportsnews')]; 
     const [ TNTSports1, TNTSports2, TNTSports3, SkySportsEPL, PremierSports1, PremierSports2, SkySportsFootball, SkySportsMainEvent,SkySportsNews ] = await Promise.all(promises);
 
     res.render('index', { TNTSports1 , TNTSports2,TNTSports3,SkySportsEPL,SkySportsFootball,
+    PremierSports1,PremierSports2,SkySportsFootball,SkySportsMainEvent,SkySportsNews});
+  } catch (error) {
+    console.error('Failed to scrape data:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+// ... (other imports and code
+app.get('/aidan', async (req, res) => {
+  try {
+    const promises = [fetchData('TNTSport1.uk','tnt-sport1'), fetchData('TNTSport2.uk','tnt-sport2'), fetchData('TNTSport3.uk','tnt-sport3'), fetchData('SkySportsPremiereLeague.uk','skysportsepl'), fetchData('ViaplaySports1.uk','premiersports1'),fetchData('ViaplaySports2.uk','premiersports2'),fetchData('SkySportsMainEvent.uk','skysportsmainevent'),fetchData('SkySportsFootball.uk','skysportsfootball'), fetchData('SkySportsNews.uk','skysportsnews')]; 
+    const [ TNTSports1, TNTSports2, TNTSports3, SkySportsEPL, PremierSports1, PremierSports2, SkySportsFootball, SkySportsMainEvent,SkySportsNews ] = await Promise.all(promises);
+
+    res.render('aidan', { TNTSports1 , TNTSports2,TNTSports3,SkySportsEPL,SkySportsFootball,
     PremierSports1,PremierSports2,SkySportsFootball,SkySportsMainEvent,SkySportsNews});
   } catch (error) {
     console.error('Failed to scrape data:', error);
@@ -290,20 +315,36 @@ const formattedDate = `${year}-${month}-${day}`;
   }
 });
 
-app.get('/api/programmes-proxy', async (req, res) => {
-  try {
-    const response = await fetch(`https://epg.best/api/programmes?date=${formattedDate}&channels[]=TNTSport1.uk&channels[]=TNTSport2.uk&channels[]=TNTSport3.uk&channels[]=beINSports1En.qa&channels[]=beINSports2En.qa&channels[]=SkySportsPremiereLeague.uk&channels[]=SkySportsMainEvent.uk&channels[]=SkySportsFootball.uk&channels[]=SkySportsNews.uk&channels[]=ViaplaySports1.uk&channels[]=ViaplaySports2.uk`, {
-    });
 
-    if (response.ok) {
-      const data = await response.json();
-      res.json(data);
-    } else {
-      res.status(response.status).json({ error: 'Failed to fetch data from the external API' });
-    }
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch data from the external API' });
+// Sample user credentials (replace with your actual credentials)
+const validEmail = 'temtesfay1234@gmail.com';
+const validPassword = 'tem123';
+// var email = 'temtesfay1234@gmail.com';
+// var password = 'tem123';
+
+// Route to render the login page
+app.get('/', (req, res) => {
+  res.render('login', { message: 'Hello Negan' });
+});
+
+// Route to handle login form submission
+app.post('/login', (req, res) => {
+  // const { email, password } = req.body;
+  const email = req.body["email"]
+  const password = req.body["pswd"]
+
+  if (email === validEmail && password === validPassword) {
+    // Successful login, redirect to profile page
+    res.redirect('/profile');
+  } else {
+    // Invalid credentials, render login page with an error message
+    res.render('login', { message: 'Invalid email or password. Please try again.' });
   }
+});
+
+
+app.get('/profile', (req, res) => {
+  res.render('profile');
 });
 
 
