@@ -1,103 +1,41 @@
-const SerieAurl = 'https://www.live-footballontv.com/live-italian-football-on-tv.html'
+IPTV Links
 
-
-// async function scrapeSerieA() {
-//   try {
-//     const response = await axios.get(SerieAurl);
-//     if (response.status === 200) {
-//       const $ = cheerio.load(response.data);
-//       const btSport1Element = $(channel);
-
-//       // Extract data for cell1 component
-//       const cell1TitleElement = btSport1Element.find('.timeline-item.cell1 .title');
-//       const cell1Title = cell1TitleElement.clone().children().remove().end().text().trim();
-//       const cell1Description = cell1TitleElement.find('.sDesc').text().trim();
-//       const cell1Time = (btSport1Element.find('.timeline-item.cell1 .time').text().trim() + " " + btSport1Element.find('.timeline-item.cell2 .time').text().trim()).slice(0, -1);
-//       const progressTime = btSport1Element.find('.progress span').attr('style').slice(6, -2);
-
-  
-
-//       // Return the scraped data as an object
-//       return { title: cell1Title, description: cell1Description, time: cell1Time, progress: progressTime};
-//     } else {
-//       console.log(`Failed to fetch the data. Status code: ${response.status}`);
-//       throw new Error('Failed to fetch data');
-//     }
-//   } catch (error) {
-//     console.error('Error fetching data:', error);
-//     throw error;
-//   }
-// }
-
-// app.get('/seriea', async (req, res) => {
-//   try {
-//     const response = await axios.get(SerieAurl);
-//     const $ = cheerio.load(response.data);
-
-//     const fixtures = [];
-//     let currentDate = ''; // Initialize the current date
-
-//     $('.fixture').each((index, element) => {
-//       const dateDivAbove = $(element).prev('.fixture-date');
-//       const dateDivBelow = $(element).next('.fixture-date');
-
-//       if (dateDivAbove.length) {
-//         currentDate = dateDivAbove.text().trim(); // Update the current date
-//       } else if (dateDivBelow.length) {
-//         currentDate = ''; // Reset the current date if no date div is above
-//       }
-
-//       const time = $(element).find('.fixture__time').text().trim();
-//       const teamsText = $(element).find('.fixture__teams').text().trim();
-//       const [homeTeam, awayTeam] = teamsText.split(' v ');
-
-//       const competition = $(element).find('.fixture__competition').text().trim();
-//       const channel = $(element).find('.channel-pill').text().trim();
-
-//       if(competition === "Serie A") {
-//         fixtures.push({
-//           date: currentDate,
-//           time,
-//           teams: { home: homeTeam, away: awayTeam },
-//           competition,
-//           channel
-//         });
-//       }
-//     });
-//     res.json(fixtures);
-
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'An error occurred' });
-//   }
-// }); 
-
-// app.get('/videos', async (req, res) => {
-//   try {
-//     const response = await axios.get('https://www.youtube.com/@fuboTVOfficial/videos');
-//     console.log(response)
-//     const $ = cheerio.load(response.data);
-
-//     const videos = [];
-
-//     $('a#video-title-link').each((index, element) => {
-//       const videoLink = $(element).attr('href');
-//       const videoTitle = $(element).find('yt-formatted-string#video-title').text();
-
-//       console.log(`Video ${index + 1}: Link: ${videoLink}, Title: ${videoTitle}`);
-
-//       videos.push({
-//         link: `https://www.youtube.com${videoLink}`,
-//         title: videoTitle,
-//         gay:'gay niggas'
-//       });
-//     });
-
-//     console.log(videos); // Log the entire videos array
-//     res.json(videos);
-
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'An error occurred' });
-//   }
-// });
+Luxury:
+#EXTINF:-1 tvg-id="ViaplaySports1.uk" tvg-name="UK: VIAPLAY SPORT 1 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/10148.png?53920" group-title="UK| SPORT HD/4K",UK: VIAPLAY SPORT 1 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/587990.m3u8
+#EXTINF:-1 tvg-id="ViaplaySports2.uk" tvg-name="UK: VIAPLAY SPORTS 2 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/10148.png?53920" group-title="UK| SPORT HD/4K",UK: VIAPLAY SPORTS 2 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/587989.m3u8
+SPORT HD/4K",UK: TNT SPORTS 1 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/588012.m3u8
+#EXTINF:-1 tvg-id="TNTSport2.uk" tvg-name="UK: TNT SPORTS 2 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/6400.jpg?56165" group-title="UK| SPORT HD/4K",UK: TNT SPORTS 2 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/588011.m3u8
+#EXTINF:-1 tvg-id="TNTSport3.uk" tvg-name="UK: TNT SPORTS 3 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/6123.png?60852" group-title="UK| SPORT HD/4K",UK: TNT SPORTS 3 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/588010.m3u8
+#EXTINF:-1 tvg-id="TNTSport4.uk" tvg-name="UK: TNT SPORTS 4 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/6398.png?48832" group-title="UK| SPORT HD/4K",UK: TNT SPORTS 4 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/588009.m3u8
+#EXTINF:-1 tvg-id="SkySportsPremiereLeague.uk" tvg-name="UK: SKY SPORTS PREMIER LEAGUE 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/12261.png?ver=59721" group-title="UK| SPORT HD/4K",UK: SKY SPORTS PREMIER LEAGUE 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/588026.m3u8
+#EXTINF:-1 tvg-id="SkySportsMainEvent.uk" tvg-name="UK: SKY SPORTS MAIN EVENT 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/12232.jpg?31368" group-title="UK| SPORT HD/4K",UK: SKY SPORTS MAIN EVENT 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/588046.m3u8
+#EXTINF:-1 tvg-id="SkySportsFootball.uk" tvg-name="UK: SKY SPORTS FOOTBALL 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/6441.png?32706" group-title="UK| SPORT HD/4K",UK: SKY SPORTS FOOTBALL 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/588044.m3u8
+#EXTINF:-1 tvg-id="ViaplaySports1.uk" tvg-name="UK: VIAPLAY SPORT 1 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/10148.png?53920" group-title="UK| SPORT HD/4K",UK: VIAPLAY SPORT 1 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/587990.m3u8
+#EXTINF:-1 tvg-id="ViaplaySports2.uk" tvg-name="UK: VIAPLAY SPORTS 2 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/10148.png?53920" group-title="UK| SPORT HD/4K",UK: VIAPLAY SPORTS 2 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/587989.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="HUB PREMIER 1 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/1886.jpg?ver=28983" group-title="UK| HUB PREMIER PPV",HUB PREMIER 1 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/620786.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="HUB PREMIER 2 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/1886.jpg?ver=28983" group-title="UK| HUB PREMIER PPV",HUB PREMIER 2 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/620785.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="HUB PREMIER 3 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/1886.jpg?ver=28983" group-title="UK| HUB PREMIER PPV",HUB PREMIER 3 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/620784.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="HUB PREMIER 4 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/1886.jpg?ver=28983" group-title="UK| HUB PREMIER PPV",HUB PREMIER 4 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/620783.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="HUB PREMIER 5 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/1886.jpg?ver=28983" group-title="UK| HUB PREMIER PPV",HUB PREMIER 5 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/620782.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="HUB PREMIER 6 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/1886.jpg?ver=28983" group-title="UK| HUB PREMIER PPV",HUB PREMIER 6 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/620781.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="HUB PREMIER 7 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/1886.jpg?ver=28983" group-title="UK| HUB PREMIER PPV",HUB PREMIER 7 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/620780.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="HUB PREMIER 8 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/1886.jpg?ver=28983" group-title="UK| HUB PREMIER PPV",HUB PREMIER 8 4K
+http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/620779.m3u8
