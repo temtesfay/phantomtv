@@ -1,5 +1,49 @@
 IPTV Links
 
+
+King Old:
+#EXTINF:-1 tvg-id="TNTSportsUltimate.uk" tvg-name="TNT Ultimate UHD - App Feed (live event)" tvg-logo="http://p13.cx:80/images/LjMxooJdLoUjs_tBLxgrV0mr491X6WYzBJN9ILOmpaO-l9-Z28XxT-gT2DScS1c-.png" group-title="UK | TNT Sports",TNT Ultimate UHD - App Feed (live event)
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1472066.m3u8
+#EXTINF:-1 timeshift="14" tvg-id="TNTSports1.uk" tvg-name="TNT Sports 1 FHD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouDBnqficzi3AX7-I5yN3e6tK68pevMgcZiGYOT6DnvwFA.png" group-title="UK | TNT Sports",TNT Sports 1 FHD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300247.m3u8
+#EXTINF:-1 tvg-id="TNTSports1.uk" tvg-name="TNT Sports 1 FHD (B)" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouDBnqficzi3AX7-I5yN3e6tK68pevMgcZiGYOT6DnvwFA.png" group-title="UK | Sports Backup",TNT Sports 1 FHD (B)
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1490676.m3u8
+#EXTINF:-1 tvg-id="TNTSports1.uk" tvg-name="TNT Sports 1 HD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouDBnqficzi3AX7-I5yN3e6tK68pevMgcZiGYOT6DnvwFA.png" group-title="UK | TNT Sports",TNT Sports 1 HD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/437216.m3u8
+#EXTINF:-1 tvg-id="TNTSports1.uk" tvg-name="TNT Sports 1 SD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouDBnqficzi3AX7-I5yN3e6tK68pevMgcZiGYOT6DnvwFA.png" group-title="UK | TNT Sports",TNT Sports 1 SD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300148.m3u8
+#EXTINF:-1 tvg-id="TNTSports2.uk" tvg-name="TNT Sports 2 FHD 5.1" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouB_wR8YZ8DEezYwBu1vPX51cemL5wsZi5ovRyN2b7RxkA.png" group-title="UK | TNT Sports",TNT Sports 2 FHD 5.1
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1855346.m3u8
+#EXTINF:-1 timeshift="14" tvg-id="TNTSports2.uk" tvg-name="TNT Sports 2 FHD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouB_wR8YZ8DEezYwBu1vPX51cemL5wsZi5ovRyN2b7RxkA.png" group-title="UK | TNT Sports",TNT Sports 2 FHD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300260.m3u8
+#EXTINF:-1 tvg-id="TNTSports2.uk" tvg-name="TNT Sports 2 FHD (B)" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouB_wR8YZ8DEezYwBu1vPX51cemL5wsZi5ovRyN2b7RxkA.png" group-title="UK | Sports Backup",TNT Sports 2 FHD (B)
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1490678.m3u8
+#EXTINF:-1 tvg-id="TNTSports2.uk" tvg-name="TNT Sports 2 HD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouB_wR8YZ8DEezYwBu1vPX51cemL5wsZi5ovRyN2b7RxkA.png" group-title="UK | TNT Sports",TNT Sports 2 HD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/437217.m3u8
+#EXTINF:-1 tvg-id="TNTSports2.uk" tvg-name="TNT Sports 2 SD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouB_wR8YZ8DEezYwBu1vPX51cemL5wsZi5ovRyN2b7RxkA.png" group-title="UK | TNT Sports",TNT Sports 2 SD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300149.m3u8
+#EXTINF:-1 tvg-id="TNTSports3.uk" tvg-name="TNT Sports 3 FHD 5.1" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouD-Xxq9a3RJESjLPBPSVwWbAe92LGkJPniFivQMTMCOUw.png" group-title="UK | TNT Sports",TNT Sports 3 FHD 5.1
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1855347.m3u8
+#EXTINF:-1 timeshift="14" tvg-id="TNTSports3.uk" tvg-name="TNT Sports 3 FHD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouD-Xxq9a3RJESjLPBPSVwWbAe92LGkJPniFivQMTMCOUw.png" group-title="UK | TNT Sports",TNT Sports 3 FHD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300468.m3u8
+#EXTINF:-1 tvg-id="TNTSports3.uk" tvg-name="TNT Sports 3 FHD (B)" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouD-Xxq9a3RJESjLPBPSVwWbAe92LGkJPniFivQMTMCOUw.png" group-title="UK | Sports Backup",TNT Sports 3 FHD (B)
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1490680.m3u8
+#EXTINF:-1 tvg-id="TNTSports3.uk" tvg-name="TNT Sports 3 HD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouD-Xxq9a3RJESjLPBPSVwWbAe92LGkJPniFivQMTMCOUw.png" group-title="UK | TNT Sports",TNT Sports 3 HD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1469057.m3u8
+#EXTINF:-1 tvg-id="TNTSports3.uk" tvg-name="TNT Sports 3 SD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouD-Xxq9a3RJESjLPBPSVwWbAe92LGkJPniFivQMTMCOUw.png" group-title="UK | TNT Sports",TNT Sports 3 SD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300829.m3u8
+#EXTINF:-1 tvg-id="TNTSports4.uk" tvg-name="TNT Sports 4 FHD 5.1" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouDvAmUzJSRNxppX-t2Z442KPp83zUL2aXAK6GKD_jGPLQ.png" group-title="UK | TNT Sports",TNT Sports 4 FHD 5.1
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1855348.m3u8
+#EXTINF:-1 timeshift="14" tvg-id="TNTSports4.uk" tvg-name="TNT Sports 4 FHD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouDvAmUzJSRNxppX-t2Z442KPp83zUL2aXAK6GKD_jGPLQ.png" group-title="UK | TNT Sports",TNT Sports 4 FHD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300311.m3u8
+#EXTINF:-1 tvg-id="TNTSports4.uk" tvg-name="TNT Sports 4 HD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouDvAmUzJSRNxppX-t2Z442KPp83zUL2aXAK6GKD_jGPLQ.png" group-title="UK | TNT Sports",TNT Sports 4 HD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1469060.m3u8
+#EXTINF:-1 tvg-id="TNTSports4.uk" tvg-name="TNT Sports 4 SD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouDvAmUzJSRNxppX-t2Z442KPp83zUL2aXAK6GKD_jGPLQ.png" group-title="UK | TNT Sports",TNT Sports 4 SD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1469058.m3u8
+
+
+
+
 Luxury:
 #EXTINF:-1 tvg-id="ViaplaySports1.uk" tvg-name="UK: VIAPLAY SPORT 1 4K" tvg-logo="http://icon-tmdb.me/stalker_portal/misc/logos/320/10148.png?53920" group-title="UK| SPORT HD/4K",UK: VIAPLAY SPORT 1 4K
 http://adam66222.cdngold.me:80/live/c8c81afe67/c71d26c056/587990.m3u8
