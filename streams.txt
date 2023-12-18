@@ -36,12 +36,36 @@ http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300829.m3u8
 http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1855348.m3u8
 #EXTINF:-1 timeshift="14" tvg-id="TNTSports4.uk" tvg-name="TNT Sports 4 FHD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouDvAmUzJSRNxppX-t2Z442KPp83zUL2aXAK6GKD_jGPLQ.png" group-title="UK | TNT Sports",TNT Sports 4 FHD
 http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300311.m3u8
+#EXTINF:-1 tvg-id="TNTSports4.uk" tvg-name="TNT Sports 4 FHD (B)" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouDvAmUzJSRNxppX-t2Z442KPp83zUL2aXAK6GKD_jGPLQ.png" group-title="UK | Sports Backup",TNT Sports 4 FHD (B)
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1490682.m3u8
 #EXTINF:-1 tvg-id="TNTSports4.uk" tvg-name="TNT Sports 4 HD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouDvAmUzJSRNxppX-t2Z442KPp83zUL2aXAK6GKD_jGPLQ.png" group-title="UK | TNT Sports",TNT Sports 4 HD
 http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1469060.m3u8
 #EXTINF:-1 tvg-id="TNTSports4.uk" tvg-name="TNT Sports 4 SD" tvg-logo="http://p13.cx:80/images/U4T92L-Xph0ndZyhp_-inM37B8RAwlHNRFUDZ-ZBpiNprguc81yqp-Uz1N3z3R1m7Omncd0rx1AZDkhgRgFIYRNKz2LnX5xKeY-qby-CouDvAmUzJSRNxppX-t2Z442KPp83zUL2aXAK6GKD_jGPLQ.png" group-title="UK | TNT Sports",TNT Sports 4 SD
 http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1469058.m3u8
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1223054.m3u8
+#EXTINF:-1 tvg-id="SkySportsPremierLeague.uk" tvg-name="Sky Sports Premier League FHD 5.1" tvg-logo="http://p13.cx:80/images/eGqxKQFYBvdaZ1gtJTHXn2iyNzKkWyCaVtDGlW13Af0z5ysu2AUHRuNwTq26pvVmeuUrH_H20LBKUz_NtP6p3A.png" group-title="UK | Sky Sports",Sky Sports Premier League FHD 5.1
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1855360.m3u8
+#EXTINF:-1 timeshift="14" tvg-id="SkySportsPremierLeague.uk" tvg-name="Sky Sports Premier League FHD" tvg-logo="http://p13.cx:80/images/eGqxKQFYBvdaZ1gtJTHXn2iyNzKkWyCaVtDGlW13Af0z5ysu2AUHRuNwTq26pvVmeuUrH_H20LBKUz_NtP6p3A.png" group-title="UK | Sky Sports",Sky Sports Premier League FHD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/793874.m3u8
+#EXTINF:-1 tvg-id="SkySportsPremierLeague.uk" tvg-name="Sky Sports Premier League HD" tvg-logo="http://p13.cx:80/images/eGqxKQFYBvdaZ1gtJTHXn2iyNzKkWyCaVtDGlW13Af0z5ysu2AUHRuNwTq26pvVmeuUrH_H20LBKUz_NtP6p3A.png" group-title="UK | Sky Sports",Sky Sports Premier League HD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1223055.m3u8
+#EXTINF:-1 tvg-id="SkySportsPremierLeague.uk" tvg-name="Sky Sports Premier League SD" tvg-logo="http://p13.cx:80/images/eGqxKQFYBvdaZ1gtJTHXn2iyNzKkWyCaVtDGlW13Af0z5ysu2AUHRuNwTq26pvVmeuUrH_H20LBKUz_NtP6p3A.png" group-title="UK | Sky Sports",Sky Sports Premier League SD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/300005.m3u8
+#EXTINF:-1 tvg-id="SkySportsFootball.uk" tvg-name="Sky Sports Football FHD 5.1" tvg-logo="http://p13.cx:80/images/eGqxKQFYBvdaZ1gtJTHXn2iyNzKkWyCaVtDGlW13Af1FTkHzbshdyyczfH0F40KPY3-oSpIulb4WoGSWhPnaRg.png" group-title="UK | Sky Sports",Sky Sports Football FHD 5.1
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1855355.m3u8
+#EXTINF:-1 timeshift="14" tvg-id="SkySportsFootball.uk" tvg-name="Sky Sports Football FHD" tvg-logo="http://p13.cx:80/images/eGqxKQFYBvdaZ1gtJTHXn2iyNzKkWyCaVtDGlW13Af1FTkHzbshdyyczfH0F40KPY3-oSpIulb4WoGSWhPnaRg.png" group-title="UK | Sky Sports",Sky Sports Football FHD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/437268.m3u8
+#EXTINF:-1 tvg-id="SkySportsFootball.uk" tvg-name="Sky Sports Football HD" tvg-logo="http://p13.cx:80/images/eGqxKQFYBvdaZ1gtJTHXn2iyNzKkWyCaVtDGlW13Af1FTkHzbshdyyczfH0F40KPY3-oSpIulb4WoGSWhPnaRg.png" group-title="UK | Sky Sports",Sky Sports Football HD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1223056.m3u8
+#EXTINF:-1 tvg-id="SkySportsFootball.uk" tvg-name="Sky Sports Football SD" tvg-logo="http://p13.cx:80/images/eGqxKQFYBvdaZ1gtJTHXn2iyNzKkWyCaVtDGlW13Af1FTkHzbshdyyczfH0F40KPY3-oSpIulb4WoGSWhPnaRg.png" group-title="UK | Sky Sports",Sky Sports Football SD
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1223057.m3u8
 
-
+#EXTINF:-1 tvg-id="SkySportsMainEvent.uk" tvg-name="Sky Sports Main Event FHD (B)" tvg-logo="http://p13.cx:80/images/Mdbnce0bA1v4qqSMwbXiDfCfvU7pWoPPHWs684PNPgdVzFhtmLuUvk1-Ur53sharsxE7KlTnLY71hCBk3LG6cw.png" group-title="UK | Sports Backup",Sky Sports Main Event FHD (B)
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1490642.m3u8
+#EXTINF:-1 tvg-id="SkySportsPremierLeague.uk" tvg-name="Sky Sports Premier League FHD (B)" tvg-logo="http://p13.cx:80/images/Mdbnce0bA1v4qqSMwbXiDUou99HI4EUVENxk7_3Vr9KxwzSRYQL2_v9t-U7oYQzG3QK0vX5z2q59Qm3-9AIo1A.png" group-title="UK | Sports Backup",Sky Sports Premier League FHD (B)
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1490646.m3u8
+#EXTINF:-1 tvg-id="SkySportsFootball.uk" tvg-name="Sky Sports Football FHD (B)" tvg-logo="http://p13.cx:80/images/Mdbnce0bA1v4qqSMwbXiDfpbkikjtxMsyM25M3kBjhT0nyZS2iSxvvh9pMoPSPZ9CzQhyms2cPmyRPVRSum9lg.png" group-title="UK | Sports Backup",Sky Sports Football FHD (B)
+http://ptv.lol:80/DzaghmcuFJ/Crhv7qkZ5/1490650.m3u8
 
 
 Luxury:

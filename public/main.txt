@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alatsi&display=swap');
+main.css 
 
 @media only screen and (min-width: 600px) {
 body {
@@ -34,16 +34,8 @@ body::-webkit-scrollbar-thumb:hover {
   align-items: center; 
   width:300px;height:40px;
   margin-left: 5px;
-  margin-bottom: 140px;
-  -webkit-overflow-scrolling: auto; 
-  /* overflow-x: scroll; */
-}
-
-.button-scroll {
-  display:flex;
-  align-items: end;
-  justify-content: end;
-
+  margin-bottom: 15px;
+  /* -webkit-overflow-scrolling: touch; */
 }
 
 .LeftScroll {
@@ -76,13 +68,16 @@ body::-webkit-scrollbar-thumb:hover {
     z-index: 2;
     cursor: pointer;
     transition: 1s;
-    position: absolute; 
+    position: absolute;
     right:0;
     /* top:120px; */
     height:40px;
     width:40px;
     align-self: self-start;
+
 }
+
+
 
 
 .live-channels-container {
@@ -94,9 +89,7 @@ body::-webkit-scrollbar-thumb:hover {
     /* align-items: center; */
     position: absolute; 
     transition: 0.5s all ease-out;
-    margin-top:90px;
-    /* overflow-x: scroll; */
-    -webkit-overflow-scrolling: auto; 
+    /* z-index: 1; */
 }
 
 .channel {
@@ -187,7 +180,6 @@ p{
 }
 
 
-
 /* api football style  */
 
 .data-container {
@@ -202,7 +194,7 @@ p{
 
 .data-container:hover {
   /* background-color: blue; */
-  /* transform: scale(1.1); */
+  transform: scale(1.1);
   border: 1px solid white;
   cursor: pointer;
 }
@@ -234,28 +226,15 @@ p{
   gap: 10px;
   width: 100%;
   /* margin-top: 100px; */
-  height:230px;
-    position: relative; 
-    overflow-x: auto;
-    overflow-y:none;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
 }
-
-
-#fixtures-container::-webkit-scrollbar {
-  display: none;
-}
-
-
 
 #live {
+  /* margin-bottom: 130px; */
   margin-left:10px;
 }
 
 .upcoming {
-  margin-top: 2px;
+  margin-top: 5.5em;
   margin-left:10px;
 }
 
@@ -323,7 +302,7 @@ p{
   color: white;
   /* font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
   font-size: 22px;
-  /* margin-bottom: 20; */
+  margin-bottom: 9vh;
   margin-left:5px;
  }
 
@@ -373,3 +352,6 @@ p{
  }
 }
 
+#live-channels {
+
+}

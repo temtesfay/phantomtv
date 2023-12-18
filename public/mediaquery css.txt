@@ -1,60 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Alatsi&display=swap');
+mediaquery css
 
-@media only screen and (min-width: 600px) {
+
+@media only screen and (max-device-width: 767px) { 
+
+html{
+    height:100%; /* ✔️ Height on the parent will fix this issue. */
+    overflow-x: hidden;
+  }
+
 body {
-  background-color: #090229;color:white;
-  height: 100%;
-  width:100%;
-  overflow-x:hidden;
-  margin: 0px;
-  padding: 0px;
-  font-family: 'Alatsi', sans-serif;
+    font-size: 14px;
+    /* overflow-x: hidden; */
+    background-color: #090229;
+    color:white;
+    height: 100%;
+    width:100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    font-family: 'Alatsi', sans-serif;
+    height:100%;
+  }
 
-}
 
 body::-webkit-scrollbar {
-  width: 8px;
-}
+    width: 8px;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: grey;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 5px;
+  }
+  
+  body::-webkit-scrollbar-thumb:hover {
+    background: rgb(119, 119, 143);
+  }
 
-body::-webkit-scrollbar-track {
-  background: grey;
-}
+  .horizontal-scroll {
+    display: flex;
+    align-items: center; 
+    /* width:300px; */
+    height:130px;
+    margin-left: 5px;
+    margin-bottom: 15px;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch; 
+  }
 
-body::-webkit-scrollbar-thumb {
-  background: white;
-  border-radius: 5px;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-  background: rgb(119, 119, 143);
-}
-
-.horizontal-scroll {
-  display: flex;
-  align-items: center; 
-  width:300px;height:40px;
-  margin-left: 5px;
-  margin-bottom: 140px;
-  -webkit-overflow-scrolling: auto; 
-  /* overflow-x: scroll; */
-}
-
-.button-scroll {
-  display:flex;
-  align-items: end;
-  justify-content: end;
-
-}
-
-.LeftScroll {
-    display: none;
+  .LeftScroll {
+    display:none;
     background-color: #090229; 
     /* opacity: 0.8; */
     border: 1px solid white;
     box-shadow: 0 0 10px #090229;
     padding: 10px 8px;
     margin: 0 0px;
-    z-index: 2;
+    z-index: 1;
     cursor: pointer;
     transition: 1s;
     position: absolute;
@@ -66,41 +71,46 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .RightScroll {
-  display: none;
+    display:none;
   background-color: #090229; 
     /* opacity: 0.8; */
     border: 1px solid white;
     box-shadow: 0 0 10px #090229;
     padding: 10px 8px;
     margin: 0 0px;
-    z-index: 2;
+    z-index: 1;
     cursor: pointer;
     transition: 1s;
-    position: absolute; 
+    position: absolute;
     right:0;
     /* top:120px; */
     height:40px;
     width:40px;
     align-self: self-start;
+
 }
+
+
 
 
 .live-channels-container {
     display: flex;
+    /* height:100%; */
     flex-direction: row;
     gap:3px;
     flex-direction: row;
     /* justify-content: flex-start; */
     /* align-items: center; */
-    position: absolute; 
-    transition: 0.5s all ease-out;
-    margin-top:90px;
-    /* overflow-x: scroll; */
-    -webkit-overflow-scrolling: auto; 
+    position: relative; 
+    overflow-x: auto;
+    overflow-y:none;
+    -webkit-overflow-scrolling: touch;
+
 }
 
 .channel {
   display: flex; background-color:#140a3d; color: white;width:300px;height:110px;padding:5px;padding-bottom: 15px;border-radius: 3%;font-family:'Pragati Narrow', sans-serif;
+  overflow-x: none;
 }
 
 
@@ -187,7 +197,6 @@ p{
 }
 
 
-
 /* api football style  */
 
 .data-container {
@@ -202,7 +211,7 @@ p{
 
 .data-container:hover {
   /* background-color: blue; */
-  /* transform: scale(1.1); */
+  transform: scale(1.1);
   border: 1px solid white;
   cursor: pointer;
 }
@@ -210,7 +219,7 @@ p{
 .live-data-container {
   color: white;
   width: 200px;
-  height: 60px;
+  height: 180px;
   background-color: #140a3d;
   padding: 25px;
   border-radius: 2%;
@@ -233,29 +242,21 @@ p{
   flex-direction: row; /* Add this line */
   gap: 10px;
   width: 100%;
-  /* margin-top: 100px; */
   height:230px;
-    position: relative; 
-    overflow-x: auto;
-    overflow-y:none;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  position: relative; 
+  overflow-x: auto;
+  overflow-y:none;
+  -webkit-overflow-scrolling: touch;
+  /* margin-top: 100px; */
 }
-
-
-#fixtures-container::-webkit-scrollbar {
-  display: none;
-}
-
-
 
 #live {
+  /* margin-bottom: 130px; */
   margin-left:10px;
 }
 
 .upcoming {
-  margin-top: 2px;
+  margin-top: 8vh;
   margin-left:10px;
 }
 
@@ -320,12 +321,12 @@ p{
  }
 
  #LiveH2 {
-  color: white;
-  /* font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
-  font-size: 22px;
-  /* margin-bottom: 20; */
-  margin-left:5px;
- }
+    color: white;
+    /* font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+    font-size: 22px;
+    margin-bottom: 2vh;
+    margin-left:5px;
+   }
 
  .liveIMG {
   position:absolute;
@@ -354,13 +355,15 @@ p{
 
 
  .headerIMG {
+    /* height:3300px;
+    width:400px; */
+  /* display:none; */
   margin-top:3.5em;
   opacity: 100%;
  }
 
- .mobile {
-  display:none;
-
+ .desktop {
+    display: none;
  }
 
  .game-minute {
@@ -371,5 +374,7 @@ p{
   margin-left: 10px;
   margin-right: 10px;
  }
+
 }
+
 
