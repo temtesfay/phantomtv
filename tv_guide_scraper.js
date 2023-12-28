@@ -56,7 +56,7 @@ function getRandomUserAgent() {
 
   // Replace this with the URL of the API you want to fetch data from
 async function fetchData(channel,channelID) {
-const url = `https://phantomtv.onrender.com/api/programmes`;
+const url = `https://phantomtv.net/api/programmes`;
 const options = {
 method: 'GET',
 headers: {
